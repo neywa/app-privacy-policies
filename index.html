@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – Hej, kámo!</title>
+  <title>App Privacy Policies</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -29,7 +29,7 @@
     }
 
     .wrap {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
     }
 
@@ -39,7 +39,7 @@
       margin-bottom: 2.5rem;
     }
 
-    .app-badge {
+    .developer-badge {
       display: inline-block;
       background: var(--accent);
       color: #fff;
@@ -55,140 +55,97 @@
 
     h1 {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
       font-weight: 400;
       line-height: 1.15;
-      color: var(--ink);
       margin-bottom: 0.6rem;
     }
 
-    .meta {
+    .subtitle {
       color: var(--muted);
-      font-size: 0.875rem;
+      font-size: 0.95rem;
+      max-width: 480px;
     }
 
-    section {
+    .apps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .app-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 1.75rem 2rem;
-      margin-bottom: 1.25rem;
-    }
-
-    h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.75rem;
+      padding: 1.5rem 1.75rem;
       display: flex;
       align-items: center;
-      gap: 0.6rem;
+      justify-content: space-between;
+      gap: 1rem;
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
     }
 
-    h2 .num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.6em;
-      height: 1.6em;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
+    .app-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 20px rgba(201, 80, 30, 0.08);
+      transform: translateY(-1px);
+    }
+
+    .app-info { flex: 1; }
+
+    .app-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.15rem;
+      font-weight: 400;
+      margin-bottom: 0.2rem;
+    }
+
+    .app-desc {
       color: var(--muted);
-      flex-shrink: 0;
+      font-size: 0.875rem;
+      line-height: 1.4;
     }
 
-    h3 {
-      font-family: 'DM Sans', sans-serif;
+    .app-arrow {
+      color: var(--accent);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+      transition: transform 0.15s;
+    }
+
+    .app-card:hover .app-arrow {
+      transform: translateX(3px);
+    }
+
+    .section-label {
+      font-size: 0.75rem;
       font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--muted);
-      margin: 1.25rem 0 0.4rem;
+      margin-bottom: 0.85rem;
     }
 
-    h3:first-of-type { margin-top: 0.5rem; }
-
-    p {
-      color: var(--ink);
-      margin-bottom: 0.75rem;
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.75rem;
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: var(--muted);
     }
 
-    p:last-child { margin-bottom: 0; }
-
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
-
-    ul:last-child { margin-bottom: 0; }
-
-    li {
-      margin-bottom: 0.35rem;
-      color: var(--ink);
-    }
-
-    a {
+    .info-box a {
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid transparent;
       transition: border-color 0.15s;
     }
 
-    a:hover { border-bottom-color: var(--accent); }
-
-    .highlight {
-      background: #fdf3ef;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      padding: 0.85rem 1rem;
-      margin: 0.75rem 0;
-      font-size: 0.925rem;
-    }
-
-    .highlight:last-child { margin-bottom: 0; }
-
-    .no-collect {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .no-collect li {
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .no-collect li::before {
-      content: '✕';
-      color: var(--muted);
-      font-size: 0.7rem;
-      flex-shrink: 0;
-    }
-
-    .contact-box {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .contact-box .icon {
-      font-size: 1.25rem;
-      flex-shrink: 0;
-    }
+    .info-box a:hover { border-bottom-color: var(--accent); }
 
     footer {
       text-align: center;
@@ -199,9 +156,8 @@
       border-top: 1px solid var(--border);
     }
 
-    @media (max-width: 540px) {
-      section { padding: 1.25rem 1.25rem; }
-      .no-collect { grid-template-columns: 1fr; }
+    @media (max-width: 480px) {
+      .app-card { padding: 1.25rem; }
     }
   </style>
 </head>
@@ -209,90 +165,55 @@
   <div class="wrap">
 
     <header>
-      <div class="app-badge">Hej, kámo!</div>
-      <h1>Privacy Policy</h1>
-      <p class="meta">Effective date: March 29, 2025 &nbsp;·&nbsp; Last updated: March 29, 2025</p>
+      <div class="developer-badge">Independent Developer</div>
+      <h1>App Privacy Policies</h1>
+      <p class="subtitle">Privacy policies for all Android apps published on Google Play. Select an app to read its policy.</p>
     </header>
 
-    <section>
-      <h2><span class="num">1</span> Introduction</h2>
-      <p>Hej, kámo! is a pub bill-splitter app developed by an independent developer. This Privacy Policy explains what data the App collects, why it collects it, and how it is handled.</p>
-      <p>We are committed to protecting your privacy. The short version: <strong>we do not collect or store any personal data on our end.</strong> By using the App you agree to the practices described below.</p>
-    </section>
+    <p class="section-label">Published apps</p>
 
-    <section>
-      <h2><span class="num">2</span> What Data We Collect</h2>
+    <div class="apps-list">
 
-      <h3>Camera &amp; Images</h3>
-      <p>The App requests camera access solely when you choose to scan a menu or receipt. Images you capture are:</p>
-      <div class="highlight">Sent directly to the <strong>Google Gemini API</strong> for AI-based text and item recognition — and nowhere else. We do not store, retain, or transmit your images to any server of our own.</div>
-      <ul>
-        <li>The image is deleted from memory once the recognition result is returned to your device.</li>
-        <li>Camera access is never used in the background.</li>
-        <li>No image is captured without your explicit action.</li>
-      </ul>
+      <a class="app-card" href="./hej-kamo/">
+        <div class="app-info">
+          <div class="app-name">Hej, kámo!</div>
+          <div class="app-desc">Pub bill splitter with menu scanning and voice input</div>
+        </div>
+        <span class="app-arrow">→</span>
+      </a>
 
-      <h3>In-App Purchases</h3>
-      <p>The App offers a one-time Pro unlock processed entirely through <strong>Google Play Billing</strong>. We do not collect, see, or store any payment information. Purchase status is managed by Google Play and stored locally on your device.</p>
+      <a class="app-card" href="./voiclee/">
+        <div class="app-info">
+          <div class="app-name">Voiclee</div>
+          <div class="app-desc">Voice-first reminders and to-do list</div>
+        </div>
+        <span class="app-arrow">→</span>
+      </a>
 
-      <h3>What We Do NOT Collect</h3>
-      <ul class="no-collect">
-        <li>Name or email address</li>
-        <li>Location data</li>
-        <li>Device or advertising IDs</li>
-        <li>Usage analytics</li>
-        <li>Crash reports</li>
-        <li>Contacts or microphone</li>
-      </ul>
-    </section>
+      <a class="app-card" href="./aura-of-gold/">
+        <div class="app-info">
+          <div class="app-name">Aura of Gold</div>
+          <div class="app-desc">Cozy interactive novel</div>
+        </div>
+        <span class="app-arrow">→</span>
+      </a>
 
-    <section>
-      <h2><span class="num">3</span> Third-Party Services</h2>
+      <a class="app-card" href="./skoda-garage/">
+        <div class="app-info">
+          <div class="app-name">Škoda Garage</div>
+          <div class="app-desc">Vehicle management and service history tracker</div>
+        </div>
+        <span class="app-arrow">→</span>
+      </a>
 
-      <h3>Google Gemini API</h3>
-      <p>When you use the menu scanning feature, images are transmitted to the <a href="https://ai.google.dev/" target="_blank" rel="noopener">Google Gemini API</a>. Google processes this data according to their own terms. We have no control over how Google handles data sent to the Gemini API.</p>
-      <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
-        <li><a href="https://policies.google.com/terms/generative-ai" target="_blank" rel="noopener">Google Generative AI Terms of Service</a></li>
-      </ul>
+    </div>
 
-      <h3>Google Play Billing</h3>
-      <p>In-app purchases are handled by Google Play Billing. Any payment data you provide is governed by the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a>. We do not have access to your payment details.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">4</span> Data Storage &amp; Retention</h2>
-      <p>We do not operate any servers or databases. All app data — bill splits, item lists, settings — is stored <strong>locally on your device only</strong>. Uninstalling the App removes this data.</p>
-      <p>Images captured for menu scanning are held temporarily in device memory during processing and are never written to disk by the App or sent to us.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">5</span> Children's Privacy</h2>
-      <p>The App is not directed at children under 13. We do not knowingly collect any personal data from children. If you believe a child has provided personal data through the App, please contact us.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">6</span> Your Rights</h2>
-      <p>Since we do not collect or store personal data on our end, there is no data held by us to access, correct, or delete. For data processed by Google (Gemini API, Play Billing), you may exercise your rights directly with Google via their <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">privacy controls</a>.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">7</span> Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
-    </section>
-
-    <section>
-      <h2><span class="num">8</span> Contact</h2>
-      <p>Questions or concerns about this Privacy Policy? Reach out:</p>
-      <div class="contact-box">
-        <span class="icon">✉</span>
-        <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
-      </div>
-    </section>
+    <div class="info-box">
+      Questions about any of these policies? Contact: <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
+    </div>
 
     <footer>
-      <p>Hej, kámo! &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
-      <p style="margin-top:0.4rem;">This policy applies to the Android app available on Google Play.</p>
+      <p>Czech Republic &nbsp;·&nbsp; All apps available on Google Play</p>
     </footer>
 
   </div>
