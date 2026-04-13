@@ -1,1 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – Pomenka</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --ink: #1c1a17;
+      --muted: #6b6560;
+      --accent: #5B8FD4;
+      --accent-light: #eef3fb;
+      --border: #e2ddd7;
+      --radius: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3em 0.85em;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6em;
+      height: 1.6em;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    h3:first-of-type { margin-top: 0.5rem; }
+
+    p {
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul:last-child { margin-bottom: 0; }
+
+    li {
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    .highlight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.925rem;
+    }
+
+    .highlight:last-child { margin-bottom: 0; }
+
+    .no-collect {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .no-collect li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .no-collect li::before {
+      content: '✕';
+      color: var(--muted);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .yes-collect {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .yes-collect li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .yes-collect li::before {
+      content: '✦';
+      color: var(--accent);
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .third-party-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .third-party-card + .third-party-card {
+      margin-top: 0.5rem;
+    }
+
+    .third-party-card .tp-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .third-party-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: var(--muted);
+    }
+
+    .third-party-card p:last-child { margin-bottom: 0; }
+
+    .permission-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .permission-table th {
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.5rem 0.75rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .permission-table td {
+      padding: 0.65rem 0.75rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      color: var(--ink);
+    }
+
+    .permission-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .permission-table td:first-child {
+      font-weight: 500;
+      white-space: nowrap;
+      width: 38%;
+    }
+
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-box .icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 540px) {
+      section { padding: 1.25rem 1.25rem; }
+      .no-collect { grid-template-columns: 1fr; }
+      .yes-collect { grid-template-columns: 1fr; }
+      .permission-table td:first-child { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="app-badge">Pomenka</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective date: May 1, 2026 &nbsp;·&nbsp; Last updated: May 1, 2026</p>
+    </header>
+
+    <section>
+      <h2><span class="num">1</span> Introduction</h2>
+      <p>Pomenka is a personal lending tracker app developed by an independent developer. It helps you keep track of items you have lent to friends, family, and colleagues — including what was lent, to whom, and when it is due back.</p>
+      <div class="highlight">
+        The short version: <strong>your data stays on your device.</strong> Pomenka does not operate any servers, does not collect usage analytics, and does not sell or share your personal data. The only outgoing network activity is for in-app purchases (RevenueCat) and font loading (Google Fonts).
+      </div>
+      <p>By using the App you agree to the practices described in this policy.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">2</span> Data Stored on Your Device</h2>
+      <p>All app data is stored <strong>locally on your device only</strong> in a SQLite database (<code>pomenka.db</code>) and the app's local documents directory. None of this data is transmitted to our servers — we operate none.</p>
+
+      <h3>Contact Information</h3>
+      <p>When you add a person to the app, you may optionally enter their name, email address, phone number, notes, and a photo. This information is entered manually by you and is used solely to display lending records within the app.</p>
+
+      <h3>Item Catalogue</h3>
+      <ul class="yes-collect">
+        <li>Item name and category</li>
+        <li>Item description</li>
+        <li>Item photo (stored locally)</li>
+        <li>Date added to catalogue</li>
+      </ul>
+
+      <h3>Lending Records</h3>
+      <ul class="yes-collect">
+        <li>Which item was lent</li>
+        <li>Who it was lent to</li>
+        <li>Date lent</li>
+        <li>Return deadline (optional)</li>
+      </ul>
+
+      <h3>Preferences</h3>
+      <p>Language selection and date format preference are stored locally via the device's standard SharedPreferences mechanism.</p>
+
+      <h3>What We Do NOT Collect</h3>
+      <ul class="no-collect">
+        <li>Location data</li>
+        <li>Device or ad identifiers</li>
+        <li>Usage analytics</li>
+        <li>Crash reports</li>
+        <li>Browsing behaviour</li>
+        <li>Contacts from your address book</li>
+        <li>Biometric data</li>
+        <li>Any data via our own servers</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">3</span> Device Permissions</h2>
+      <table class="permission-table">
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Why it is needed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Camera</td>
+            <td>To photograph items you are cataloguing or to take a portrait photo of a contact. The camera is only active when you explicitly open it within the app.</td>
+          </tr>
+          <tr>
+            <td>Photo Library</td>
+            <td>To let you choose an existing photo from your gallery for an item or contact. No images are uploaded anywhere.</td>
+          </tr>
+          <tr>
+            <td>Internet</td>
+            <td>Required for in-app purchase verification via RevenueCat and for loading font files from Google Fonts at startup.</td>
+          </tr>
+          <tr>
+            <td>File Storage (Android)</td>
+            <td>To write and read the JSON backup file when you use the manual backup or restore feature. Files are saved to your device's documents directory only.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="margin-top: 0.75rem;">You can revoke any permission at any time in your device settings. Revoking camera or photo library access disables photo features; the rest of the app continues to function normally.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">4</span> Third-Party Services</h2>
+      <p>Pomenka integrates two third-party services. No other SDKs, analytics tools, or advertising networks are included.</p>
+
+      <div class="third-party-card">
+        <div class="tp-name">RevenueCat (purchases_flutter SDK)</div>
+        <p>Used to process and verify the one-time "Pomenka Pro" in-app purchase. RevenueCat receives an anonymous app user ID and purchase or entitlement data sufficient to confirm your purchase status. RevenueCat does not receive your name, contact list, items, or lending records.</p>
+        <p>RevenueCat privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">Google Fonts</div>
+        <p>The app loads the DM Sans typeface from Google's font servers at startup. This request includes your device's IP address and standard HTTP headers. No app data is included.</p>
+        <p>Google privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+      </div>
+
+      <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--muted);">Note: Google Sign-In and Google APIs are declared in the app's dependency manifest but are not implemented or called in any version of the app. No Google account authentication occurs.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">5</span> Backup &amp; Restore</h2>
+      <p>Pomenka includes a manual backup feature that exports all your data (items, contacts, and lending records) as a single JSON file saved to your device's local documents directory.</p>
+      <ul>
+        <li>The backup file stays on your device unless you choose to share it via the OS share sheet (for example, by emailing it to yourself or saving it to a cloud drive of your choice).</li>
+        <li>We never receive, access, or store backup files.</li>
+        <li>You can restore a previous backup at any time from within the app, which will replace the current local database.</li>
+      </ul>
+      <div class="highlight">If you share a backup file via a third-party service (e.g. iCloud Drive, Google Drive, email), that service's own privacy policy applies to how they store and process that file.</div>
+    </section>
+
+    <section>
+      <h2><span class="num">6</span> Data Sharing</h2>
+      <p>We do not sell, rent, trade, or otherwise share your personal data with any third party, except as described in Section 4 (RevenueCat and Google Fonts) above, which is limited to what is technically necessary for those services to function.</p>
+      <p>We may disclose information if required to do so by law or in response to a valid legal request. Since we hold no user data on our servers, any such request would yield nothing on our end.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">7</span> Data Retention</h2>
+      <p>All data persists locally on your device for as long as you use the app or until you delete it:</p>
+      <ul>
+        <li>Individual items, contacts, and lending records can be deleted at any time from within the app.</li>
+        <li>All local data is permanently removed when you uninstall the app.</li>
+        <li>RevenueCat retains purchase records according to <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">their own retention policy</a>. Your Pro entitlement status can be restored at any time using the "Restore purchase" option in the app.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">8</span> Your Rights</h2>
+      <p>Because we do not collect or hold personal data on our own servers, many standard data rights (access, rectification, portability, erasure) are exercisable directly within the app itself — you are in full control at all times:</p>
+      <ul>
+        <li><strong>Access &amp; export:</strong> use the Backup feature to export all your data as a JSON file at any time.</li>
+        <li><strong>Edit:</strong> all contacts and items can be edited directly within the app.</li>
+        <li><strong>Delete:</strong> individual records can be deleted from within the app; all data is erased on uninstall.</li>
+      </ul>
+      <p>If you are located in the European Union, you have rights under the General Data Protection Regulation (GDPR), including the right to lodge a complaint with your local supervisory authority. If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA). In both cases, since we hold no data on our end, your primary point of control is the app itself.</p>
+      <p>For any questions about data held by RevenueCat or Google, please contact those providers directly through their respective privacy portals.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">9</span> Children's Privacy</h2>
+      <p>Pomenka is not directed at children under the age of 13 (or under 16 in the European Union). We do not knowingly collect personal data from children. The app performs no age verification, but its purpose — tracking borrowed personal belongings — is intended for an adult audience.</p>
+      <p>If you believe a child has entered personal information of others through the app, you can delete that data directly within the app or by uninstalling it.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">10</span> Security</h2>
+      <p>Because all data is stored locally on your device and no data is transmitted to our servers, the primary security layer is your device's own security model — screen lock, device encryption, and operating system sandboxing.</p>
+      <p>Photos you take or select within the app are stored in the app's sandboxed documents directory, which is not accessible to other apps. We recommend keeping your device's operating system up to date to benefit from the latest security patches.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">11</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy as the app evolves or if legal requirements change. Any changes will be reflected on this page with an updated effective date.</p>
+      <p>If we introduce data collection practices that are materially different from those described here, we will notify users through an in-app notice or through the app store update notes, and where required by law, obtain your consent before proceeding.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">12</span> Contact</h2>
+      <p>Questions, concerns, or requests regarding this Privacy Policy? Please get in touch:</p>
+      <div class="contact-box">
+        <span class="icon">✉</span>
+        <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>Pomenka &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
+      <p style="margin-top:0.4rem;">This policy applies to the Android and iOS versions of the app.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
