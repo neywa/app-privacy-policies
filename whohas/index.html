@@ -332,6 +332,7 @@
         <li>Who it was lent to</li>
         <li>Date lent</li>
         <li>Return deadline (optional)</li>
+        <li>Notification preferences per lending (stored locally)</li>
       </ul>
 
       <h3>Preferences</h3>
@@ -369,6 +370,18 @@
             <td>To let you choose an existing photo from your gallery for an item or contact. No images are uploaded anywhere.</td>
           </tr>
           <tr>
+            <td>Notifications</td>
+            <td>To deliver local return-date reminders you configure per lending record. All notifications are scheduled and fired entirely on your device — no push notification server or third-party messaging service is used.</td>
+          </tr>
+          <tr>
+            <td>Exact Alarm Scheduling (Android)</td>
+            <td>To ensure return-date reminders fire at precisely 9:00 AM on the scheduled day rather than being deferred by the system. Required on Android 12 and above for time-sensitive local notifications.</td>
+          </tr>
+          <tr>
+            <td>Receive Boot Completed (Android)</td>
+            <td>To reschedule pending local notifications after a device restart. No data is collected, processed, or transmitted during this process.</td>
+          </tr>
+          <tr>
             <td>Internet</td>
             <td>Required for in-app purchase verification via RevenueCat and for loading font files from Google Fonts at startup.</td>
           </tr>
@@ -378,16 +391,42 @@
           </tr>
         </tbody>
       </table>
-      <p style="margin-top: 0.75rem;">You can revoke any permission at any time in your device settings. Revoking camera or photo library access disables photo features; the rest of the app continues to function normally.</p>
+      <p style="margin-top: 0.75rem;">You can revoke any permission at any time in your device settings. Revoking camera or photo library access disables photo features; revoking notification permission disables return-date reminders. The rest of the app continues to function normally in both cases.</p>
     </section>
 
     <section>
-      <h2><span class="num">4</span> Third-Party Services</h2>
+      <h2><span class="num">4</span> Local Notifications</h2>
+
+      <h3>How reminders work</h3>
+      <p>When you lend an item and set a return deadline, you can optionally enable one or more reminders for that specific lending record. The available reminder types are:</p>
+      <ul>
+        <li><strong>Day before return</strong> — a reminder the day before the deadline</li>
+        <li><strong>Day of return</strong> — a reminder on the day the item is due back</li>
+        <li><strong>Overdue nudge</strong> — a follow-up reminder 3 days after the deadline has passed</li>
+      </ul>
+      <p>All reminders fire at 9:00 AM local time on the scheduled day. Your notification preferences are stored as part of the lending record in the local database on your device.</p>
+
+      <div class="highlight">
+        <strong>All notifications are local.</strong> Whohas uses your device's built-in alarm and notification system exclusively. No push notification server, no Firebase Cloud Messaging, no third-party messaging SDK, and no network connection are involved in delivering reminders. Notification scheduling data never leaves your device.
+      </div>
+
+      <h3>What notification content contains</h3>
+      <p>Each notification contains only the item name and the borrower's first name — both of which are data you entered into the app yourself and which are stored locally on your device. No other data is included in notification content.</p>
+
+      <h3>Rescheduling after device restart</h3>
+      <p>On Android, the app listens for the device boot event solely to reschedule pending local notifications after a restart. No data is collected, processed, or transmitted during this process.</p>
+
+      <h3>Cancellation</h3>
+      <p>Notifications for a lending record are automatically cancelled when you mark the item as returned within the app. You can also adjust or disable notification preferences for any lending record by editing it, or revoke notification permission entirely in your device settings at any time.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">5</span> Third-Party Services</h2>
       <p>Whohas integrates two third-party services. No other SDKs, analytics tools, or advertising networks are included.</p>
 
       <div class="third-party-card">
         <div class="tp-name">RevenueCat (purchases_flutter SDK)</div>
-        <p>Used to process and verify the one-time "Whohas Pro" in-app purchase. RevenueCat receives an anonymous app user ID and purchase or entitlement data sufficient to confirm your purchase status. RevenueCat does not receive your name, contact list, items, or lending records.</p>
+        <p>Used to process and verify the one-time "WhoHas Plus" in-app purchase. RevenueCat receives an anonymous app user ID and purchase or entitlement data sufficient to confirm your purchase status. RevenueCat does not receive your name, contact list, items, lending records, or notification data.</p>
         <p>RevenueCat privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
       </div>
 
@@ -401,8 +440,8 @@
     </section>
 
     <section>
-      <h2><span class="num">5</span> Backup &amp; Restore</h2>
-      <p>Whohas includes a manual backup feature that exports all your data (items, contacts, and lending records) as a single JSON file saved to your device's local documents directory.</p>
+      <h2><span class="num">6</span> Backup &amp; Restore</h2>
+      <p>Whohas includes a manual backup feature that exports all your data (items, contacts, lending records, and notification preferences) as a single JSON file saved to your device's local documents directory.</p>
       <ul>
         <li>The backup file stays on your device unless you choose to share it via the OS share sheet (for example, by emailing it to yourself or saving it to a cloud drive of your choice).</li>
         <li>We never receive, access, or store backup files.</li>
@@ -412,53 +451,55 @@
     </section>
 
     <section>
-      <h2><span class="num">6</span> Data Sharing</h2>
-      <p>We do not sell, rent, trade, or otherwise share your personal data with any third party, except as described in Section 4 (RevenueCat and Google Fonts) above, which is limited to what is technically necessary for those services to function.</p>
+      <h2><span class="num">7</span> Data Sharing</h2>
+      <p>We do not sell, rent, trade, or otherwise share your personal data with any third party, except as described in Section 5 (RevenueCat and Google Fonts) above, which is limited to what is technically necessary for those services to function.</p>
       <p>We may disclose information if required to do so by law or in response to a valid legal request. Since we hold no user data on our servers, any such request would yield nothing on our end.</p>
     </section>
 
     <section>
-      <h2><span class="num">7</span> Data Retention</h2>
+      <h2><span class="num">8</span> Data Retention</h2>
       <p>All data persists locally on your device for as long as you use the app or until you delete it:</p>
       <ul>
         <li>Individual items, contacts, and lending records can be deleted at any time from within the app.</li>
+        <li>Pending notifications are cancelled automatically when a lending record is marked as returned or deleted.</li>
         <li>All local data is permanently removed when you uninstall the app.</li>
-        <li>RevenueCat retains purchase records according to <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">their own retention policy</a>. Your Pro entitlement status can be restored at any time using the "Restore purchase" option in the app.</li>
+        <li>RevenueCat retains purchase records according to <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">their own retention policy</a>. Your Plus entitlement status can be restored at any time using the "Restore purchase" option in the app.</li>
       </ul>
     </section>
 
     <section>
-      <h2><span class="num">8</span> Your Rights</h2>
+      <h2><span class="num">9</span> Your Rights</h2>
       <p>Because we do not collect or hold personal data on our own servers, many standard data rights (access, rectification, portability, erasure) are exercisable directly within the app itself — you are in full control at all times:</p>
       <ul>
         <li><strong>Access &amp; export:</strong> use the Backup feature to export all your data as a JSON file at any time.</li>
-        <li><strong>Edit:</strong> all contacts and items can be edited directly within the app.</li>
+        <li><strong>Edit:</strong> all contacts, items, and notification preferences can be edited directly within the app.</li>
         <li><strong>Delete:</strong> individual records can be deleted from within the app; all data is erased on uninstall.</li>
+        <li><strong>Notifications:</strong> notification preferences can be changed per lending record at any time, or disabled entirely by revoking notification permission in your device settings.</li>
       </ul>
       <p>If you are located in the European Union, you have rights under the General Data Protection Regulation (GDPR), including the right to lodge a complaint with your local supervisory authority. If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA). In both cases, since we hold no data on our end, your primary point of control is the app itself.</p>
       <p>For any questions about data held by RevenueCat or Google, please contact those providers directly through their respective privacy portals.</p>
     </section>
 
     <section>
-      <h2><span class="num">9</span> Children's Privacy</h2>
+      <h2><span class="num">10</span> Children's Privacy</h2>
       <p>Whohas is not directed at children under the age of 13 (or under 16 in the European Union). We do not knowingly collect personal data from children. The app performs no age verification, but its purpose — tracking borrowed personal belongings — is intended for an adult audience.</p>
       <p>If you believe a child has entered personal information of others through the app, you can delete that data directly within the app or by uninstalling it.</p>
     </section>
 
     <section>
-      <h2><span class="num">10</span> Security</h2>
+      <h2><span class="num">11</span> Security</h2>
       <p>Because all data is stored locally on your device and no data is transmitted to our servers, the primary security layer is your device's own security model — screen lock, device encryption, and operating system sandboxing.</p>
       <p>Photos you take or select within the app are stored in the app's sandboxed documents directory, which is not accessible to other apps. We recommend keeping your device's operating system up to date to benefit from the latest security patches.</p>
     </section>
 
     <section>
-      <h2><span class="num">11</span> Changes to This Policy</h2>
+      <h2><span class="num">12</span> Changes to This Policy</h2>
       <p>We may update this Privacy Policy as the app evolves or if legal requirements change. Any changes will be reflected on this page with an updated effective date.</p>
       <p>If we introduce data collection practices that are materially different from those described here, we will notify users through an in-app notice or through the app store update notes, and where required by law, obtain your consent before proceeding.</p>
     </section>
 
     <section>
-      <h2><span class="num">12</span> Contact</h2>
+      <h2><span class="num">13</span> Contact</h2>
       <p>Questions, concerns, or requests regarding this Privacy Policy? Please get in touch:</p>
       <div class="contact-box">
         <span class="icon">✉</span>
