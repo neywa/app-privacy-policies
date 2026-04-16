@@ -211,13 +211,13 @@
     <header>
       <div class="app-badge">Hej, kámo!</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Effective date: March 29, 2025 &nbsp;·&nbsp; Last updated: March 29, 2025</p>
+      <p class="meta">Effective date: March 29, 2025 &nbsp;·&nbsp; Last updated: April 16, 2026</p>
     </header>
 
     <section>
       <h2><span class="num">1</span> Introduction</h2>
       <p>Hej, kámo! is a pub bill-splitter app developed by an independent developer. This Privacy Policy explains what data the App collects, why it collects it, and how it is handled.</p>
-      <p>We are committed to protecting your privacy. The short version: <strong>we do not collect or store any personal data on our end.</strong> By using the App you agree to the practices described below.</p>
+      <p>We are committed to protecting your privacy. The short version: <strong>we do not collect any personal data.</strong> The App does store a small amount of anonymous, non-personal data server-side for rate limiting purposes — no names, emails, or identifying information are involved. By using the App you agree to the practices described below.</p>
     </section>
 
     <section>
@@ -225,21 +225,31 @@
 
       <h3>Camera &amp; Images</h3>
       <p>The App requests camera access solely when you choose to scan a menu or receipt. Images you capture are:</p>
-      <div class="highlight">Sent directly to the <strong>Google Gemini API</strong> for AI-based text and item recognition — and nowhere else. We do not store, retain, or transmit your images to any server of our own.</div>
+      <div class="highlight">Sent to our <strong>Firebase Cloud Function</strong> (hosted on Google Cloud), which verifies your anonymous identity, checks your rate limit, and forwards the image to the <strong>Google Gemini API</strong> for AI-based text and item recognition. Images are processed in memory only — they are never stored on our servers or anywhere else.</div>
       <ul>
-        <li>The image is deleted from memory once the recognition result is returned to your device.</li>
+        <li>The image is discarded from memory as soon as the recognition result is returned.</li>
         <li>Camera access is never used in the background.</li>
         <li>No image is captured without your explicit action.</li>
       </ul>
 
+      <h3>Anonymous Rate Limiting Data</h3>
+      <p>To prevent abuse of the menu scanning feature, the App uses <strong>Firebase Anonymous Authentication</strong> to generate a unique anonymous user ID (UID) on first launch. No email, name, or personal information is associated with this UID.</p>
+      <p>The following minimal data is stored in <strong>Google Cloud Firestore</strong> solely for rate limiting:</p>
+      <ul>
+        <li>Anonymous UID (a randomly generated identifier)</li>
+        <li>Date of scan activity</li>
+        <li>Scan count (an integer)</li>
+      </ul>
+      <p>No bill data, item lists, images, or any other app content is ever stored server-side.</p>
+
       <h3>In-App Purchases</h3>
-      <p>The App offers a one-time Pro unlock processed entirely through <strong>Google Play Billing</strong>. We do not collect, see, or store any payment information. Purchase status is managed by Google Play and stored locally on your device.</p>
+      <p>The App offers a one-time Pro unlock processed through <strong>Google Play Billing</strong> and managed via <strong>RevenueCat</strong>. RevenueCat receives anonymous app user IDs and purchase receipts from Google Play to verify and manage entitlements. We do not collect, see, or store any payment information.</p>
 
       <h3>What We Do NOT Collect</h3>
       <ul class="no-collect">
         <li>Name or email address</li>
         <li>Location data</li>
-        <li>Device or advertising IDs</li>
+        <li>Advertising IDs</li>
         <li>Usage analytics</li>
         <li>Crash reports</li>
         <li>Contacts or microphone</li>
@@ -249,21 +259,39 @@
     <section>
       <h2><span class="num">3</span> Third-Party Services</h2>
 
-      <h3>Google Gemini API</h3>
-      <p>When you use the menu scanning feature, images are transmitted to the <a href="https://ai.google.dev/" target="_blank" rel="noopener">Google Gemini API</a>. Google processes this data according to their own terms. We have no control over how Google handles data sent to the Gemini API.</p>
+      <h3>Firebase (Google)</h3>
+      <p>The App uses several Firebase services provided by Google:</p>
       <ul>
+        <li><strong>Firebase Anonymous Authentication</strong> — generates a random anonymous UID on first launch to identify the device for rate limiting. No personal information is linked to this UID.</li>
+        <li><strong>Cloud Firestore</strong> — stores the anonymous UID, date, and scan count for rate limiting purposes only.</li>
+        <li><strong>Firebase Cloud Functions</strong> — receives menu images from your device, verifies identity and rate limits, and forwards images to the Gemini API. Images are processed in memory and never stored.</li>
+      </ul>
+      <ul>
+        <li><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy Policy</a></li>
         <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+      </ul>
+
+      <h3>Google Gemini API</h3>
+      <p>Menu scan images are ultimately processed by the <a href="https://ai.google.dev/" target="_blank" rel="noopener">Google Gemini API</a>. Google processes this data according to their own terms. We have no control over how Google handles data sent to the Gemini API.</p>
+      <ul>
         <li><a href="https://policies.google.com/terms/generative-ai" target="_blank" rel="noopener">Google Generative AI Terms of Service</a></li>
       </ul>
 
       <h3>Google Play Billing</h3>
       <p>In-app purchases are handled by Google Play Billing. Any payment data you provide is governed by the <a href="https://play.google.com/about/play-terms/" target="_blank" rel="noopener">Google Play Terms of Service</a>. We do not have access to your payment details.</p>
+
+      <h3>RevenueCat</h3>
+      <p>Purchase status and entitlements are managed through <a href="https://www.revenuecat.com/" target="_blank" rel="noopener">RevenueCat</a>. RevenueCat receives anonymous app user IDs and Google Play purchase receipts to verify Pro unlock status. No personal data is shared with RevenueCat.</p>
+      <ul>
+        <li><a href="https://www.revenuecat.com/privacy/" target="_blank" rel="noopener">RevenueCat Privacy Policy</a></li>
+      </ul>
     </section>
 
     <section>
       <h2><span class="num">4</span> Data Storage &amp; Retention</h2>
-      <p>We do not operate any servers or databases. All app data — bill splits, item lists, settings — is stored <strong>locally on your device only</strong>. Uninstalling the App removes this data.</p>
-      <p>Images captured for menu scanning are held temporarily in device memory during processing and are never written to disk by the App or sent to us.</p>
+      <p>Most app data — bill splits, item lists, people, settings — is stored <strong>locally on your device only</strong>. Uninstalling the App removes this data.</p>
+      <p>The only data stored on our servers is the anonymous rate limiting record in Cloud Firestore: an anonymous UID, a date, and a scan count. This data contains no personal information and cannot be used to identify you.</p>
+      <p>Images captured for menu scanning are processed in memory by our Firebase Cloud Function and are never written to disk or retained on any server.</p>
     </section>
 
     <section>
@@ -273,7 +301,7 @@
 
     <section>
       <h2><span class="num">6</span> Your Rights</h2>
-      <p>Since we do not collect or store personal data on our end, there is no data held by us to access, correct, or delete. For data processed by Google (Gemini API, Play Billing), you may exercise your rights directly with Google via their <a href="https://myaccount.google.com/data-and-privacy" target="_blank" rel="noopener">privacy controls</a>.</p>
+      <p>Since we do not collect or store personal data on our end, there is no data held by us to access, correct, or delete. For data processed by Google (Firebase, Gemini API, Play Billing) or RevenueCat, you may exercise your rights directly with those providers via their respective privacy controls.</p>
     </section>
 
     <section>
