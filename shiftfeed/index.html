@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – ShiftFeed</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --ink: #1c1a17;
+      --muted: #6b6560;
+      --accent: #EE0000;
+      --accent-light: #fff0f0;
+      --border: #e2ddd7;
+      --radius: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3em 0.85em;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6em;
+      height: 1.6em;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    h3:first-of-type { margin-top: 0.5rem; }
+
+    p {
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul:last-child { margin-bottom: 0; }
+
+    li {
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    .highlight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.925rem;
+    }
+
+    .highlight:last-child { margin-bottom: 0; }
+
+    .no-collect {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .no-collect li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .no-collect li::before {
+      content: '✕';
+      color: var(--muted);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .yes-collect {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .yes-collect li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .yes-collect li::before {
+      content: '✦';
+      color: var(--accent);
+      font-size: 0.65rem;
+      flex-shrink: 0;
+    }
+
+    .third-party-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin-top: 0.75rem;
+    }
+
+    .third-party-card + .third-party-card {
+      margin-top: 0.5rem;
+    }
+
+    .third-party-card .tp-name {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--ink);
+      margin-bottom: 0.3rem;
+    }
+
+    .third-party-card p {
+      font-size: 0.9rem;
+      margin-bottom: 0.3rem;
+      color: var(--muted);
+    }
+
+    .third-party-card p:last-child { margin-bottom: 0; }
+
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-box .icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 540px) {
+      section { padding: 1.25rem 1.25rem; }
+      .no-collect { grid-template-columns: 1fr; }
+      .yes-collect { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="app-badge">ShiftFeed</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective date: 22 April 2026 &nbsp;·&nbsp; Last updated: 22 April 2026</p>
+    </header>
+
+    <section>
+      <h2><span class="num">1</span> Introduction</h2>
+      <p>ShiftFeed is a read-only news aggregator for the OpenShift and Kubernetes community, developed by an independent developer. It surfaces publicly available articles, GitHub release announcements, Red Hat security advisories, and an AI-generated daily briefing in a single feed.</p>
+      <div class="highlight">The short version: <strong>ShiftFeed collects no personal data.</strong> There are no accounts, no analytics, no advertising, and no tracking. The only network activity is fetching public article content and, on mobile, delivering broadcast push notifications.</div>
+      <p>By using the app you agree to the practices described in this policy.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">2</span> Data the App Does Not Collect</h2>
+      <p>ShiftFeed does not collect, store, or transmit any of the following:</p>
+      <ul class="no-collect">
+        <li>Name or email address</li>
+        <li>Location data</li>
+        <li>Device or advertising IDs</li>
+        <li>Usage analytics</li>
+        <li>Crash reports</li>
+        <li>Contacts or microphone</li>
+        <li>Camera or photos</li>
+        <li>Browsing history</li>
+        <li>Any biometric data</li>
+        <li>User-generated content</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">There are no user accounts, no sign-up flow, and no profile of any kind. No data about you is ever sent to any server operated by the developer.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">3</span> Data the App Does Handle</h2>
+
+      <h3>Article Content (read-only)</h3>
+      <p>The app fetches publicly available article metadata — title, URL, source name, summary, tags, and publication date — along with AI-generated daily briefings from a Supabase-hosted database. This content contains no user data; it is identical for every user who opens the app.</p>
+
+      <h3>Push Notifications (Android and iOS only)</h3>
+      <p>On Android and iOS, the app requests notification permission at first launch and subscribes the device to three broadcast topics via Firebase Cloud Messaging (FCM):</p>
+      <ul class="yes-collect">
+        <li>all — daily AI briefing</li>
+        <li>security — CVE and security advisory alerts</li>
+        <li>releases — new software release alerts</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">All notifications are broadcast to every subscribed device. None are personalised or targeted at an individual user. The Firebase SDK generates an FCM registration token that is managed by Google; the app does not transmit this token to any server operated by the developer. Push notifications are not available on the web or desktop versions of the app.</p>
+
+      <h3>In-App Browser</h3>
+      <p>On Android and iOS, tapping an article opens it in an embedded WebView. On web and desktop, it opens in the user's external browser. When you visit an article, the destination website (e.g. Red Hat Blog, Kubernetes Blog, CNCF Blog, Hacker News, GitHub) may set its own cookies and log the visit according to its own privacy policy. ShiftFeed does not inject scripts, intercept content, or collect anything from these browsing sessions.</p>
+
+      <h3>Local Preferences</h3>
+      <p>A light/dark theme preference is stored on-device only using standard platform local storage. It is never transmitted anywhere.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">4</span> Device Permissions</h2>
+
+      <h3>Android</h3>
+      <ul>
+        <li><strong>INTERNET</strong> — required to fetch articles and briefings from the backend database.</li>
+        <li><strong>POST_NOTIFICATIONS</strong> — requested at runtime on Android 13 and above to deliver push notifications. You can deny or revoke this permission at any time in system settings; the rest of the app continues to function normally.</li>
+      </ul>
+
+      <h3>iOS</h3>
+      <ul>
+        <li><strong>Notifications</strong> — requested at runtime to deliver push notifications. You can deny or revoke this permission at any time in system settings.</li>
+      </ul>
+
+      <h3>Web and Desktop</h3>
+      <p>No special permissions are requested. The web version runs as a static site and makes only anonymous read requests to the backend database.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">5</span> Third-Party Services</h2>
+      <p>ShiftFeed relies on the following third-party services. No other SDKs, analytics tools, or advertising networks are included.</p>
+
+      <div class="third-party-card">
+        <div class="tp-name">Supabase (database backend)</div>
+        <p>Article metadata and AI briefings are stored in a Supabase-hosted PostgreSQL database running on AWS infrastructure. The app makes anonymous read-only requests using a public publishable key. No user identity or personal data is transmitted in these requests.</p>
+        <p>Supabase privacy policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">Google Firebase Cloud Messaging</div>
+        <p>Used exclusively to deliver broadcast push notifications on Android and iOS. Subject to Google's privacy practices. The developer does not receive or store FCM registration tokens.</p>
+        <p>Google privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">GitHub Pages</div>
+        <p>The web version of ShiftFeed is hosted as a static site on GitHub Pages. Visitors may be subject to GitHub's privacy practices for static site visitors.</p>
+        <p>GitHub privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">Anthropic Claude (server-side only)</div>
+        <p>The daily briefing text is generated on the server side by Anthropic's Claude API, using only the public article summaries already stored in the database. No user data is sent to Anthropic. Users do not interact with Claude directly.</p>
+        <p>Anthropic privacy policy: <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a></p>
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">6</span> International Data Transfers</h2>
+      <p>ShiftFeed itself collects no personal data, so there is nothing to transfer on our behalf. However, the third-party services the app relies on — Supabase (AWS infrastructure), Google Firebase, GitHub, and Anthropic — may process requests in the United States or other countries. Please refer to each provider's privacy policy for details of their data transfer practices.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">7</span> Data Retention</h2>
+      <p>The app stores no personal data, so there is nothing to retain or delete on the developer's side.</p>
+      <ul>
+        <li>You can revoke notification permission at any time in your device's system settings, which ends FCM topic subscriptions.</li>
+        <li>Uninstalling the app removes the local theme preference from your device and terminates all FCM subscriptions.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><span class="num">8</span> Your Rights</h2>
+      <p>Because ShiftFeed collects no personal data, standard data-subject rights — access, rectification, portability, erasure — are largely not applicable to the developer. There is no data held on our end to provide, correct, or delete.</p>
+      <p>If you are located in the European Union, you have rights under the General Data Protection Regulation (GDPR). If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA). In both cases, since we hold no personal data, your primary point of control is your device's system settings (for notification permissions) and the app stores (for app data removal on uninstall).</p>
+      <p>For any questions, please contact us at the address in Section 10.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">9</span> Children's Privacy</h2>
+      <p>ShiftFeed is aimed at software engineers, SREs, and DevOps professionals. It is not directed at children under the age of 13 (or under 16 in jurisdictions where that threshold applies) and does not knowingly collect any data from children.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">10</span> Security</h2>
+      <p>Because ShiftFeed transmits no personal data, there is no personal data at risk in transit or at rest on our servers. The app's only outgoing requests are anonymous reads of public article content.</p>
+      <p>We recommend keeping your device's operating system up to date to benefit from the latest platform-level security protections.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">11</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy as the app evolves or if legal requirements change. Any changes will be reflected on this page with an updated effective date.</p>
+      <p>We will not introduce data collection practices that are materially different from those described here without updating this document and, where required by law, obtaining your consent.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">12</span> Contact</h2>
+      <p>Questions or concerns about this Privacy Policy? Please get in touch:</p>
+      <div class="contact-box">
+        <span class="icon">✉</span>
+        <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>ShiftFeed &nbsp;·&nbsp; OpenShift Community Intelligence &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
+      <p style="margin-top:0.4rem;">This policy applies to the Android, iOS, web, and desktop versions of the app.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
