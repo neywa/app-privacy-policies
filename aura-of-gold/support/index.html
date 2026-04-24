@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support – Aura of Gold</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9933a;
+      --gold-light: #e8bc6a;
+      --cream: #fdf6e8;
+      --warm-brown: #5c3d1e;
+      --text: #3a2810;
+      --muted: #8a6a45;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text);
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Grain overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 100;
+      opacity: 0.4;
+    }
+
+    /* Sun glow */
+    body::after {
+      content: '';
+      position: fixed;
+      top: -120px;
+      right: -120px;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(232,188,106,0.22) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    header {
+      position: relative;
+      z-index: 1;
+      padding: 60px 40px 40px;
+      text-align: center;
+      border-bottom: 1px solid rgba(201,147,58,0.2);
+    }
+
+    .app-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #e8bc6a, #c9933a, #8B5E2A);
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 8px 32px rgba(201,147,58,0.3);
+      animation: float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-6px); }
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      color: var(--warm-brown);
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 32px;
+    }
+
+    .section {
+      margin-bottom: 56px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.6s ease forwards;
+    }
+
+    .section:nth-child(1) { animation-delay: 0.1s; }
+    .section:nth-child(2) { animation-delay: 0.2s; }
+    .section:nth-child(3) { animation-delay: 0.3s; }
+    .section:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, rgba(201,147,58,0.3), transparent);
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: var(--warm-brown);
+      margin-bottom: 14px;
+      font-style: italic;
+    }
+
+    p {
+      line-height: 1.8;
+      color: var(--text);
+      font-size: 0.95rem;
+    }
+
+    .faq-item {
+      border-left: 2px solid rgba(201,147,58,0.3);
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.5);
+      border-radius: 0 8px 8px 0;
+      transition: border-color 0.3s, background 0.3s;
+    }
+
+    .faq-item:hover {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.8);
+    }
+
+    .faq-q {
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--warm-brown);
+      margin-bottom: 8px;
+    }
+
+    .faq-a {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .contact-card {
+      background: linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,248,230,0.9));
+      border: 1px solid rgba(201,147,58,0.25);
+      border-radius: 16px;
+      padding: 32px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 4px 24px rgba(201,147,58,0.08);
+    }
+
+    .contact-card p {
+      margin-bottom: 20px;
+      color: var(--muted);
+    }
+
+    .email-link {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+      color: white;
+      text-decoration: none;
+      padding: 12px 32px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      box-shadow: 0 4px 16px rgba(201,147,58,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .email-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,147,58,0.45);
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px;
+      border-top: 1px solid rgba(201,147,58,0.15);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="app-icon">🌾</div>
+    <h1>Aura of Gold</h1>
+    <p class="subtitle">Support &amp; Help</p>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <div class="section-label">Getting started</div>
+      <h2>Frequently Asked Questions</h2>
+
+      <div class="faq-item">
+        <div class="faq-q">Is Aura of Gold free to play?</div>
+        <div class="faq-a">Yes — Aura of Gold is completely free. There are no in-app purchases, no subscriptions, and no hidden costs.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do I need an account or internet connection?</div>
+        <div class="faq-a">No account or login is required. The app works fully offline once downloaded.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">How long is the story?</div>
+        <div class="faq-a">The game is designed to be enjoyed at your own pace. You can play in short sessions or explore it all in one sitting — there's no timer or pressure.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">Do my choices matter?</div>
+        <div class="faq-a">Yes. The choices you make throughout the story shape Elara's journey — where she goes, who she meets, and who she becomes.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">The app won't open / keeps crashing. What can I do?</div>
+        <div class="faq-a">Try restarting your device and reopening the app. If the issue persists, delete and reinstall the app. If it still doesn't work, please contact us — we'd love to help.</div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-label">Get in touch</div>
+      <h2>Still need help?</h2>
+      <div class="contact-card">
+        <p>We're a small indie team and we read every message. Drop us an email and we'll get back to you as soon as we can.</p>
+        <a class="email-link" href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Neywa &nbsp;·&nbsp; <a href="../index.html">Privacy Policy</a></p>
+  </footer>
+
+</body>
+</html>
