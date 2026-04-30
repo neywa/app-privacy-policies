@@ -196,6 +196,37 @@
       flex-shrink: 0;
     }
 
+    .tier-tag {
+      display: inline-block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15em 0.6em;
+      border-radius: 99px;
+      vertical-align: middle;
+      margin-left: 0.4rem;
+    }
+
+    .tier-tag.anon {
+      background: #f0f4ff;
+      color: #4466cc;
+      border: 1px solid #c8d4f5;
+    }
+
+    .tier-tag.signedin {
+      background: #f0fff4;
+      color: #2a7a4a;
+      border: 1px solid #b8e8c8;
+    }
+
+    .tier-tag.pro {
+      background: var(--accent-light);
+      color: var(--accent);
+      border: 1px solid #f5c8c8;
+    }
+
     .third-party-card {
       background: var(--bg);
       border: 1px solid var(--border);
@@ -240,6 +271,33 @@
       flex-shrink: 0;
     }
 
+    .rights-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .rights-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+    }
+
+    .rights-card .rc-title {
+      font-weight: 500;
+      font-size: 0.875rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .rights-card p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
     footer {
       text-align: center;
       color: var(--muted);
@@ -253,6 +311,7 @@
       section { padding: 1.25rem 1.25rem; }
       .no-collect { grid-template-columns: 1fr; }
       .yes-collect { grid-template-columns: 1fr; }
+      .rights-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -262,21 +321,22 @@
     <header>
       <div class="app-badge">ShiftFeed</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Effective date: 22 April 2026 &nbsp;·&nbsp; Last updated: 22 April 2026</p>
+      <p class="meta">Effective date: 30 April 2026 &nbsp;·&nbsp; Last updated: 30 April 2026</p>
     </header>
 
     <section>
       <h2><span class="num">1</span> Introduction</h2>
-      <p>ShiftFeed is a read-only news aggregator for the OpenShift and Kubernetes community, developed by an independent developer. It surfaces publicly available articles, GitHub release announcements, Red Hat security advisories, and an AI-generated daily briefing in a single feed.</p>
-      <div class="highlight">The short version: <strong>ShiftFeed collects no personal data.</strong> There are no accounts, no analytics, no advertising, and no tracking. The only network activity is fetching public article content and, on mobile, delivering broadcast push notifications.</div>
+      <p>ShiftFeed is an OpenShift and Kubernetes news aggregator developed by an independent developer based in the Czech Republic. It surfaces publicly available articles, GitHub release announcements, Red Hat security advisories, and an AI-generated daily briefing in a single feed.</p>
+      <div class="highlight">
+        <strong>The short version:</strong> ShiftFeed can be used fully anonymously — no account required to read the feed, receive broadcast push notifications, or submit a public link. An optional account (email magic link) unlocks cross-device bookmark sync. A paid Pro subscription additionally unlocks personalised features: custom alert rules, custom RSS feeds, a scheduled personalised daily briefing, and per-device targeted push notifications. We collect only what those optional features require. No analytics, no advertising, no tracking SDKs, no device or advertising IDs.
+      </div>
       <p>By using the app you agree to the practices described in this policy.</p>
     </section>
 
     <section>
       <h2><span class="num">2</span> Data the App Does Not Collect</h2>
-      <p>ShiftFeed does not collect, store, or transmit any of the following:</p>
+      <p>ShiftFeed does not collect, store, or transmit any of the following, regardless of whether you are signed in or not:</p>
       <ul class="no-collect">
-        <li>Name or email address</li>
         <li>Location data</li>
         <li>Device or advertising IDs</li>
         <li>Usage analytics</li>
@@ -284,32 +344,55 @@
         <li>Contacts or microphone</li>
         <li>Camera or photos</li>
         <li>Browsing history</li>
-        <li>Any biometric data</li>
-        <li>User-generated content</li>
+        <li>Biometric data</li>
+        <li>Marketing communications</li>
+        <li>Payment instruments</li>
       </ul>
-      <p style="margin-top: 0.75rem;">There are no user accounts, no sign-up flow, and no profile of any kind. No data about you is ever sent to any server operated by the developer.</p>
+      <p style="margin-top: 0.75rem;">Signed-in users do have an email address and a Supabase user UUID stored — see Section 3. Everything else on the list above is never collected, even with an account.</p>
     </section>
 
     <section>
       <h2><span class="num">3</span> Data the App Does Handle</h2>
 
-      <h3>Article Content (read-only)</h3>
-      <p>The app fetches publicly available article metadata — title, URL, source name, summary, tags, and publication date — along with AI-generated daily briefings from a Supabase-hosted database. This content contains no user data; it is identical for every user who opens the app.</p>
+      <h3>Article Content <span class="tier-tag anon">Anonymous</span></h3>
+      <p>The app fetches publicly available article metadata — title, URL, source name, summary, tags, and publication date — along with AI-generated daily briefings from a Supabase-hosted database. This content is identical for every reader and contains no user data.</p>
 
-      <h3>Push Notifications (Android and iOS only)</h3>
-      <p>On Android and iOS, the app requests notification permission at first launch and subscribes the device to three broadcast topics via Firebase Cloud Messaging (FCM):</p>
-      <ul class="yes-collect">
-        <li>all — daily AI briefing</li>
-        <li>security — CVE and security advisory alerts</li>
-        <li>releases — new software release alerts</li>
+      <h3>Anonymous Link Submissions <span class="tier-tag anon">Anonymous</span></h3>
+      <p>Any user, signed in or not, can submit a public URL via the Submit a Link form. The URL is stored in a submissions table for editorial review. If you are not signed in, no identity is attached to the submission. If you are signed in, your user UUID is associated with the submission for editorial purposes only.</p>
+
+      <h3>Authentication <span class="tier-tag signedin">Signed-in</span></h3>
+      <p>Sign-in is via Supabase magic link — no password. You enter your email address; Supabase sends a one-time sign-in link; tapping it opens the app and establishes a session via a custom URL scheme (<code>shiftfeed://auth-callback</code>). This is not a system permission; it is a deep-link handled by the app.</p>
+      <p>We store: your email address, a Supabase-issued user UUID, and standard auth metadata (created at, last sign-in timestamp). Your email is used only to deliver the magic link and as the account identifier. We do not send marketing email.</p>
+
+      <h3>Bookmarks <span class="tier-tag signedin">Signed-in</span></h3>
+      <p>When signed in, bookmarks sync across your devices via a <code>user_bookmarks</code> table keyed to your user UUID. Anonymous users' bookmarks are stored locally on-device only and are never transmitted.</p>
+
+      <h3>Push Notifications</h3>
+      <p>Push notifications operate in two distinct modes depending on sign-in status:</p>
+      <ul>
+        <li><strong>Broadcast topics</strong> <span class="tier-tag anon">Anonymous</span> — on Android and iOS, the device subscribes to <code>all</code> (daily briefing), <code>security</code> (CVE alerts), and <code>releases</code> (software release alerts) via Firebase Cloud Messaging. These are broadcast to every subscribed device; no identity is attached and no token is stored by the developer.</li>
+        <li><strong>Per-device targeted push</strong> <span class="tier-tag pro">Pro</span> — for signed-in Pro users, the device's FCM registration token is stored in a <code>user_device_tokens</code> table linked to your user UUID. This enables the backend to deliver alert-rule matches and personalised briefings directly to your device. Stale tokens are pruned automatically when FCM reports them invalid.</li>
       </ul>
-      <p style="margin-top: 0.75rem;">All notifications are broadcast to every subscribed device. None are personalised or targeted at an individual user. The Firebase SDK generates an FCM registration token that is managed by Google; the app does not transmit this token to any server operated by the developer. Push notifications are not available on the web or desktop versions of the app.</p>
+
+      <h3>Pro Feature Data <span class="tier-tag pro">Pro</span></h3>
+      <p>The following data is stored only for signed-in Pro users, each in its own Supabase table scoped to your user UUID:</p>
+      <ul>
+        <li><strong>Custom alert rules</strong> (<code>user_alert_rules</code>) — keyword filters, source category filters, and optional CVSS score thresholds you configure.</li>
+        <li><strong>Custom RSS feeds</strong> (<code>user_rss_sources</code>) — RSS feed URLs you add. The backend fetches these on your behalf and writes resulting articles to the shared articles table tagged as user-submitted. Those articles are visible only to you, enforced by Supabase row-level security.</li>
+        <li><strong>Personalised digest preferences</strong> (<code>user_digest_prefs</code>) — your chosen delivery hour and your device's IANA timezone string (e.g. <code>Europe/Prague</code>), read from the operating system via the <code>flutter_timezone</code> plugin. We do not derive or store geolocation; the timezone is used only to schedule your briefing at roughly the right local time.</li>
+      </ul>
+
+      <h3>Paid Subscriptions <span class="tier-tag pro">Pro</span></h3>
+      <p>Billing is handled entirely by Apple App Store or Google Play. ShiftFeed never sees your card details or payment instrument. Subscription state is managed by RevenueCat, which receives your Supabase user UUID and standard purchase metadata (product ID, store, status) from the platform after sign-in. RevenueCat uses the UUID to link entitlements to your account across devices. No payment data is transmitted to or stored by the developer.</p>
 
       <h3>In-App Browser</h3>
-      <p>On Android and iOS, tapping an article opens it in an embedded WebView. On web and desktop, it opens in the user's external browser. When you visit an article, the destination website (e.g. Red Hat Blog, Kubernetes Blog, CNCF Blog, Hacker News, GitHub) may set its own cookies and log the visit according to its own privacy policy. ShiftFeed does not inject scripts, intercept content, or collect anything from these browsing sessions.</p>
+      <p>On Android and iOS, tapping an article opens it in an embedded WebView. On web and desktop, it opens in your external browser. Destination websites (Red Hat Blog, Kubernetes Blog, GitHub, etc.) may set their own cookies and log your visit per their own privacy policies. ShiftFeed does not inject scripts, intercept content, or collect anything from these browsing sessions.</p>
 
-      <h3>Local Preferences</h3>
-      <p>A light/dark theme preference is stored on-device only using standard platform local storage. It is never transmitted anywhere.</p>
+      <h3>Local-Only Preferences</h3>
+      <p>Light/dark theme, trial-banner-dismissed state, and similar transient UI flags are stored on-device only using standard platform local storage. They are never transmitted.</p>
+
+      <h3>Row-Level Security</h3>
+      <p>Every per-user Supabase table uses <code>auth.uid() = user_id</code> row-level security policies. A signed-in user can only read and write their own rows. The backend ingestion job uses a separate service-role key to write public article rows; that key never ships in the app binary.</p>
     </section>
 
     <section>
@@ -318,16 +401,18 @@
       <h3>Android</h3>
       <ul>
         <li><strong>INTERNET</strong> — required to fetch articles and briefings from the backend database.</li>
-        <li><strong>POST_NOTIFICATIONS</strong> — requested at runtime on Android 13 and above to deliver push notifications. You can deny or revoke this permission at any time in system settings; the rest of the app continues to function normally.</li>
+        <li><strong>POST_NOTIFICATIONS</strong> — requested at runtime on Android 13 and above to deliver push notifications. You can deny or revoke this at any time in system settings; the rest of the app continues to function normally.</li>
+        <li><strong>Deep-link URL scheme</strong> — the magic-link sign-in flow uses the <code>shiftfeed://auth-callback</code> scheme to return you to the app after tapping the sign-in link in your email. This is not a system permission; it is registered in the app's manifest and does not require user approval.</li>
       </ul>
 
       <h3>iOS</h3>
       <ul>
-        <li><strong>Notifications</strong> — requested at runtime to deliver push notifications. You can deny or revoke this permission at any time in system settings.</li>
+        <li><strong>Notifications</strong> — requested at runtime to deliver push notifications. You can deny or revoke at any time in system settings.</li>
+        <li><strong>Deep-link URL scheme</strong> — same as Android above; <code>shiftfeed://auth-callback</code> is registered as a URL scheme in the app's Info.plist. No user approval required.</li>
       </ul>
 
       <h3>Web and Desktop</h3>
-      <p>No special permissions are requested. The web version runs as a static site and makes only anonymous read requests to the backend database.</p>
+      <p>No special permissions are requested. The web version runs as a static site and makes only anonymous read requests to the backend database. Account features and the Pro tier are not available on web or desktop.</p>
     </section>
 
     <section>
@@ -335,60 +420,110 @@
       <p>ShiftFeed relies on the following third-party services. No other SDKs, analytics tools, or advertising networks are included.</p>
 
       <div class="third-party-card">
-        <div class="tp-name">Supabase (database backend)</div>
-        <p>Article metadata and AI briefings are stored in a Supabase-hosted PostgreSQL database running on AWS infrastructure. The app makes anonymous read-only requests using a public publishable key. No user identity or personal data is transmitted in these requests.</p>
+        <div class="tp-name">Supabase (database and authentication backend)</div>
+        <p>Article metadata, AI briefings, and — for signed-in users — account credentials and per-user feature data (bookmarks, alert rules, custom RSS sources, digest preferences, device tokens) are stored in a Supabase-hosted PostgreSQL database running on AWS infrastructure. All per-user data is scoped by row-level security to the owning account. Anonymous requests use a public publishable key; authenticated requests use a session JWT issued by Supabase Auth.</p>
         <p>Supabase privacy policy: <a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></p>
       </div>
 
       <div class="third-party-card">
         <div class="tp-name">Google Firebase Cloud Messaging</div>
-        <p>Used exclusively to deliver broadcast push notifications on Android and iOS. Subject to Google's privacy practices. The developer does not receive or store FCM registration tokens.</p>
+        <p>Used to deliver push notifications on Android and iOS. All users receive broadcast topic notifications; no identity is attached. For signed-in Pro users, the device's FCM registration token is additionally stored server-side to enable targeted push for alert rules and personalised briefings. Subject to Google's privacy practices.</p>
         <p>Google privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
       </div>
 
       <div class="third-party-card">
-        <div class="tp-name">GitHub Pages</div>
-        <p>The web version of ShiftFeed is hosted as a static site on GitHub Pages. Visitors may be subject to GitHub's privacy practices for static site visitors.</p>
-        <p>GitHub privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
+        <div class="tp-name">RevenueCat (subscription management) — mobile only</div>
+        <p>Manages Pro subscription entitlements on Android and iOS. After sign-in, the app sends your Supabase user UUID and standard purchase metadata (product ID, store, subscription status) to RevenueCat so your Pro entitlements follow your account across devices. RevenueCat does not receive payment instrument details. Not used on web or desktop.</p>
+        <p>RevenueCat privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
       </div>
 
       <div class="third-party-card">
-        <div class="tp-name">Anthropic Claude (server-side only)</div>
-        <p>The daily briefing text is generated on the server side by Anthropic's Claude API, using only the public article summaries already stored in the database. No user data is sent to Anthropic. Users do not interact with Claude directly.</p>
+        <div class="tp-name">Apple App Store / Google Play (payment processing) — mobile only</div>
+        <p>All payment processing for Pro subscriptions is handled entirely by Apple or Google. ShiftFeed never receives or stores card details or payment instruments. Purchases are subject to Apple's and Google's respective terms and privacy policies.</p>
+        <p>Apple privacy policy: <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">apple.com/legal/privacy</a> &nbsp;·&nbsp; Google privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">Anthropic Claude (AI briefing generation — server-side only)</div>
+        <p>The Claude API is used server-side to generate both the curated daily briefing (broadcast to all users) and personalised briefings for Pro users with digest scheduling enabled. The personalised prompt includes the user's category filter preferences and a list of public article summaries already stored in the database. No email address, user UUID, or other identifying data is included in prompts sent to Anthropic. Users do not interact with Claude directly.</p>
         <p>Anthropic privacy policy: <a href="https://www.anthropic.com/legal/privacy" target="_blank" rel="noopener">anthropic.com/legal/privacy</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">Resend (transactional email)</div>
+        <p>Magic-link sign-in emails are delivered via Resend, sent from <code>noreply@shiftfeed.tech</code>. Resend receives your email address solely to deliver the one-time sign-in link. No marketing email is sent through this service.</p>
+        <p>Resend privacy policy: <a href="https://resend.com/legal/privacy-policy" target="_blank" rel="noopener">resend.com/legal/privacy-policy</a></p>
+      </div>
+
+      <div class="third-party-card">
+        <div class="tp-name">GitHub Pages (web hosting)</div>
+        <p>The web version of ShiftFeed is hosted as a static site on GitHub Pages. Visitors may be subject to GitHub's privacy practices for static site visitors. Account and Pro features are not available on the web version.</p>
+        <p>GitHub privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
       </div>
     </section>
 
     <section>
       <h2><span class="num">6</span> International Data Transfers</h2>
-      <p>ShiftFeed itself collects no personal data, so there is nothing to transfer on our behalf. However, the third-party services the app relies on — Supabase (AWS infrastructure), Google Firebase, GitHub, and Anthropic — may process requests in the United States or other countries. Please refer to each provider's privacy policy for details of their data transfer practices.</p>
+      <p>The developer is based in the Czech Republic. For anonymous users, no personal data is collected or transferred. For signed-in users, limited personal data (email address, user UUID, and user-generated feature content) is stored in Supabase's AWS-hosted infrastructure and may be processed in the United States or other countries.</p>
+      <p>The third-party services ShiftFeed relies on — Supabase, RevenueCat, Google Firebase, Anthropic, Apple, Resend, and GitHub — may process data in the US or elsewhere. Please refer to each provider's privacy policy for details of their data transfer practices and applicable safeguards.</p>
     </section>
 
     <section>
       <h2><span class="num">7</span> Data Retention</h2>
-      <p>The app stores no personal data, so there is nothing to retain or delete on the developer's side.</p>
+      <p>Retention depends on the type of data:</p>
       <ul>
-        <li>You can revoke notification permission at any time in your device's system settings, which ends FCM topic subscriptions.</li>
-        <li>Uninstalling the app removes the local theme preference from your device and terminates all FCM subscriptions.</li>
+        <li><strong>Account data</strong> (email, UUID, auth metadata) persists until you request account deletion.</li>
+        <li><strong>Per-user feature data</strong> (bookmarks, alert rules, custom RSS sources, digest preferences, device tokens) is deleted automatically on account deletion via Supabase cascade delete.</li>
+        <li><strong>Anonymous link submissions</strong> persist indefinitely as part of the public article catalog, with no user identity attached.</li>
+        <li><strong>Stale FCM tokens</strong> are pruned automatically when the platform reports them invalid.</li>
+        <li><strong>Local preferences</strong> (theme, UI flags) are removed when you uninstall the app.</li>
       </ul>
+      <p style="margin-top: 0.75rem;">Uninstalling the app does not delete your cloud account. To delete your account and all associated data, contact us at the address in Section 12.</p>
     </section>
 
     <section>
       <h2><span class="num">8</span> Your Rights</h2>
-      <p>Because ShiftFeed collects no personal data, standard data-subject rights — access, rectification, portability, erasure — are largely not applicable to the developer. There is no data held on our end to provide, correct, or delete.</p>
-      <p>If you are located in the European Union, you have rights under the General Data Protection Regulation (GDPR). If you are a California resident, you have rights under the California Consumer Privacy Act (CCPA). In both cases, since we hold no personal data, your primary point of control is your device's system settings (for notification permissions) and the app stores (for app data removal on uninstall).</p>
-      <p>For any questions, please contact us at the address in Section 10.</p>
+      <p>Because ShiftFeed now holds limited personal data for signed-in users, standard data-subject rights apply. If you are located in the European Union (GDPR) or California (CCPA), you have the following rights:</p>
+
+      <div class="rights-grid">
+        <div class="rights-card">
+          <div class="rc-title">Access &amp; portability</div>
+          <p>Email us to request a copy of your data.</p>
+        </div>
+        <div class="rights-card">
+          <div class="rc-title">Rectification</div>
+          <p>Most feature data (alert rules, RSS feeds, digest prefs) is editable directly in the app.</p>
+        </div>
+        <div class="rights-card">
+          <div class="rc-title">Erasure</div>
+          <p>Request account deletion by email. All per-user data is cascade-deleted.</p>
+        </div>
+        <div class="rights-card">
+          <div class="rc-title">Withdraw consent</div>
+          <p>Sign out at any time. Revoke notification permission in OS settings. Cancel Pro via App Store or Google Play.</p>
+        </div>
+      </div>
+
+      <p style="margin-top: 1rem;">For anonymous users, data-subject rights are largely not applicable on the developer's side — there is no personal data held to provide, correct, or delete. Your primary point of control is your device's system settings.</p>
+      <p>To exercise any of these rights, contact us at the address in Section 12.</p>
     </section>
 
     <section>
       <h2><span class="num">9</span> Children's Privacy</h2>
-      <p>ShiftFeed is aimed at software engineers, SREs, and DevOps professionals. It is not directed at children under the age of 13 (or under 16 in jurisdictions where that threshold applies) and does not knowingly collect any data from children.</p>
+      <p>ShiftFeed is aimed at software engineers, SREs, and DevOps professionals. Account creation requires an email address and is intended for adult professionals. The app is not directed at children under the age of 13 (or under 16 in jurisdictions where that threshold applies) and does not knowingly collect any data from children.</p>
     </section>
 
     <section>
       <h2><span class="num">10</span> Security</h2>
-      <p>Because ShiftFeed transmits no personal data, there is no personal data at risk in transit or at rest on our servers. The app's only outgoing requests are anonymous reads of public article content.</p>
-      <p>We recommend keeping your device's operating system up to date to benefit from the latest platform-level security protections.</p>
+      <p>We take reasonable steps to protect the data we do hold:</p>
+      <ul>
+        <li>All data in transit between the app and Supabase is TLS-encrypted.</li>
+        <li>Authentication uses Supabase magic-link — no passwords are created or stored.</li>
+        <li>Per-user data is isolated at the database layer via Supabase row-level security policies.</li>
+        <li>The service-role key used by the backend ingestion job is held only server-side and never ships in the app binary.</li>
+        <li>Magic-link sign-in emails are delivered from a verified domain (<code>shiftfeed.tech</code>) with SPF, DKIM, and DMARC records configured.</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">We recommend keeping your device's operating system up to date to benefit from the latest platform-level security protections.</p>
     </section>
 
     <section>
@@ -399,7 +534,7 @@
 
     <section>
       <h2><span class="num">12</span> Contact</h2>
-      <p>Questions or concerns about this Privacy Policy? Please get in touch:</p>
+      <p>Questions, data access requests, or account deletion requests? Please get in touch:</p>
       <div class="contact-box">
         <span class="icon">✉</span>
         <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
@@ -407,7 +542,8 @@
     </section>
 
     <footer>
-      <p>ShiftFeed &nbsp;·&nbsp; OpenShift Community Intelligence &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
+      <p>ShiftFeed &nbsp;·&nbsp; OpenShift &amp; Kubernetes Intelligence &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
+      <p style="margin-top:0.4rem;">Web and desktop builds are anonymous read-only. Optional account and paid Pro tier available on Android and iOS.</p>
       <p style="margin-top:0.4rem;">This policy applies to the Android, iOS, web, and desktop versions of the app.</p>
     </footer>
 
