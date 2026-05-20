@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy – InSureD</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --ink: #1c1a17;
+      --muted: #6b6560;
+      --accent: #2563EB;
+      --accent-light: #eff4ff;
+      --border: #e2ddd7;
+      --radius: 12px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      line-height: 1.75;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 2.5rem 0 2rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+
+    .app-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3em 0.85em;
+      border-radius: 99px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 0.6rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
+
+    section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.75rem 2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h2 .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.6em;
+      height: 1.6em;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--muted);
+      flex-shrink: 0;
+    }
+
+    h3 {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin: 1.25rem 0 0.4rem;
+    }
+
+    h3:first-of-type { margin-top: 0.5rem; }
+
+    p {
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul {
+      padding-left: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    ul:last-child { margin-bottom: 0; }
+
+    li {
+      margin-bottom: 0.35rem;
+      color: var(--ink);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.15s;
+    }
+
+    a:hover { border-bottom-color: var(--accent); }
+
+    .highlight {
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 0.85rem 1rem;
+      margin: 0.75rem 0;
+      font-size: 0.925rem;
+    }
+
+    .highlight:last-child { margin-bottom: 0; }
+
+    .no-collect {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.4rem 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .no-collect li {
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .no-collect li::before {
+      content: '✕';
+      color: var(--muted);
+      font-size: 0.7rem;
+      flex-shrink: 0;
+    }
+
+    .contact-box {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    .contact-box .icon {
+      font-size: 1.25rem;
+      flex-shrink: 0;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 2.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 540px) {
+      section { padding: 1.25rem 1.25rem; }
+      .no-collect { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="app-badge">InSureD</div>
+      <h1>Privacy Policy</h1>
+      <p class="meta">Effective date: <span id="date">2025</span> &nbsp;·&nbsp; Last updated: <span id="updated">2025</span></p>
+    </header>
+
+    <section>
+      <h2><span class="num">1</span> Introduction</h2>
+      <p>InSureD is a personal and family insurance tracker developed by Neywa Blake, an independent developer based in the Czech Republic. The app lets you record your insurance policies, companies, agents, payments, claims, and attached documents, and reminds you of upcoming payments and expiring policies.</p>
+      <div class="highlight">
+        <strong>The short version: InSureD is fully offline.</strong> All data you enter stays on your device. It is never transmitted to any server, synced to the cloud, or shared with any third party — except for the narrow, user-initiated actions described in this policy (in-app purchase and voluntary data export). By using the app you agree to the practices described below.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">2</span> What Data the App Stores</h2>
+      <p>Everything listed below is stored exclusively in a private SQLite database inside the app's sandbox on your device. None of it is transmitted by the app.</p>
+
+      <h3>Family Member Profiles</h3>
+      <p>Name, optional date of birth, relationship to you (self / spouse / child / parent / other), and an optional avatar image stored as a local file path. This lets you track coverage for your whole household in one place.</p>
+
+      <h3>Insurance Companies</h3>
+      <p>Company name, and optional contact details you choose to record: address, website, phone number, email address, and a logo image stored as a local file path.</p>
+
+      <h3>Insurance Agents</h3>
+      <p>Agent or advisor name, and optional contact details: phone, email, address, and free-text notes.</p>
+
+      <h3>Insurance Policies</h3>
+      <p>The policy's linked family member, insurance type, optional description of the insured object or person (for example, a vehicle registration or a name), linked company, optional linked agent, optional contract number, optional contract and validity dates, policy status, free-text notes, and an optional file attachment (PDF, JPG, JPEG, or PNG) copied into the app's private documents folder on your device.</p>
+
+      <h3>Payment Schedules &amp; Payment Records</h3>
+      <p>Per-policy: payment period (monthly, quarterly, annual, etc.), amount, currency, next due date, and an optional payment method description. Payment history: paid date, amount, currency, and optional notes — stored as individual records so you can track what you have actually paid over time.</p>
+
+      <h3>Insurance Claims</h3>
+      <p>Linked policy, incident date, description, amount claimed, optional settled amount, claim status, optional submission and resolution dates, and optional notes.</p>
+
+      <h3>Notification Preferences</h3>
+      <p>Per-policy settings for how many days before a payment due date or policy expiry to send a reminder, and a master on/off toggle. These preferences are used only to schedule local reminders on your device.</p>
+
+      <h3>App Settings</h3>
+      <p>Your preferred display currency, theme choice (system / light / dark), language preference, default notification lead-times, and master notification toggle.</p>
+
+      <h3>What We Do NOT Collect</h3>
+      <ul class="no-collect">
+        <li>Account credentials</li>
+        <li>Real-time location</li>
+        <li>Contacts or calendar</li>
+        <li>Photos library</li>
+        <li>Health or biometric data</li>
+        <li>Device or advertising IDs</li>
+        <li>Usage analytics</li>
+        <li>Crash reports or telemetry</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">The app has no login or account system. It makes no network requests on your behalf and operates fully without an internet connection.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">3</span> Third-Party Services</h2>
+      <p>InSureD uses exactly two third-party services, both related solely to the optional one-time Pro upgrade. Neither service receives any of your insurance data.</p>
+
+      <h3>RevenueCat</h3>
+      <p>When you purchase the optional Pro upgrade, <a href="https://www.revenuecat.com" target="_blank" rel="noopener">RevenueCat</a> is used to process and verify the purchase. RevenueCat receives an anonymous purchase token and transaction metadata from the device app store (Google Play or Apple App Store). It does not receive your name, email address, or any insurance content you have entered in the app. RevenueCat assigns your device an anonymous identifier that is not linked to any personal information by InSureD.</p>
+      <p><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a></p>
+
+      <h3>Google Play Billing &amp; Apple App Store</h3>
+      <p>The purchase transaction itself is handled by Google or Apple under their respective terms. InSureD receives only a confirmation that the purchase succeeded and the Pro entitlement is active. We do not see or store any payment instrument details.</p>
+      <p>
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
+        &nbsp;·&nbsp;
+        <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a>
+      </p>
+
+      <div class="highlight">
+        InSureD contains no analytics SDK, no crash reporting SDK, no advertising SDK, and no remote configuration service. Firebase, Crashlytics, Sentry, and Google Analytics are not present in the app.
+      </div>
+    </section>
+
+    <section>
+      <h2><span class="num">4</span> Device Permissions</h2>
+
+      <h3>Notifications</h3>
+      <p>Requested at runtime (on Android 13 and above, and on iOS) to deliver payment and expiry reminders. Reminders are scheduled and delivered entirely on your device by the operating system. No remote push service, server, or internet connection is involved. You can deny or revoke this permission at any time in your device's system settings without affecting any other part of the app.</p>
+
+      <h3>Exact Alarm Scheduling (Android)</h3>
+      <p><code>SCHEDULE_EXACT_ALARM</code> and <code>USE_EXACT_ALARM</code> permissions are used so reminders fire at precisely the date and time you specified, rather than at an approximate time chosen by the OS.</p>
+
+      <h3>Boot Completed (Android)</h3>
+      <p><code>RECEIVE_BOOT_COMPLETED</code> allows the app to reschedule its local reminders after your device restarts, so reminders you have set survive a reboot. No data is transmitted during this process.</p>
+
+      <h3>Vibrate (Android)</h3>
+      <p>Used to vibrate when a reminder notification fires.</p>
+
+      <h3>File Access</h3>
+      <p>The system file picker is used when you choose to attach a contract document (PDF or image) to a policy, or when you import a backup file. The app sees only the specific file you explicitly select — it does not browse your storage, photo library, or any other files.</p>
+
+      <p style="margin-top: 0.75rem;">The app does <strong>not</strong> request access to your location, camera, microphone, contacts, or calendar.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">5</span> Data Export, Sharing &amp; Import</h2>
+
+      <h3>Voluntary Export</h3>
+      <p>You can export your data at any time from the Settings screen, in two formats:</p>
+      <ul>
+        <li><strong>JSON export</strong> — a structured file containing all your policy data, without attached documents.</li>
+        <li><strong>ZIP export</strong> — a full backup containing the JSON data file plus all contract attachments you have added.</li>
+      </ul>
+      <p>The exported file is handed to your operating system's standard share sheet. You choose what to do with it — save it to a folder, send it to another app, email it to yourself, etc. InSureD does not upload the export file anywhere.</p>
+
+      <h3>Import</h3>
+      <p>You can restore a previously-exported JSON or ZIP backup via the Settings screen. The app reads only the file you explicitly select using the file picker. Nothing is fetched from a server.</p>
+
+      <h3>Tap-to-Contact Actions</h3>
+      <p>Tapping a phone number, email address, or website stored in the app opens your device's dialer, mail app, or browser respectively. InSureD passes only the specific value you tapped to the OS. The external app you use receives that value according to its own privacy policy.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">6</span> Children's Data</h2>
+      <p>InSureD is intended for use by adults managing their household's insurance. It is not directed at children and does not include features designed for children.</p>
+      <p>You may add family members of any age — including children — as profiles within the app. When you do, the child's name (and optionally their date of birth) is stored only in the local database on your device. This information is never transmitted by the app and is never accessible to or shared with any third party, including the developer.</p>
+      <p>The app does not knowingly collect data directly from children. If you are a parent or guardian and have concerns, you can delete any profile at any time from within the app.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">7</span> Data Storage &amp; Retention</h2>
+      <p>All data is stored in the app's private sandbox on your device, isolated from other apps by the operating system. There is no server-side copy. The developer has no ability to access, view, or recover your data.</p>
+      <p>You are in full control of your data at all times:</p>
+      <ul>
+        <li>To delete a single record, use the delete function within the app.</li>
+        <li>To delete all data, clear the app's data via your device's app settings, or uninstall the app. Both actions permanently remove the database and all attachments.</li>
+      </ul>
+      <p>Because no data is held server-side, there is no retention period to define — the data exists for as long as you keep it on your device.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">8</span> Security</h2>
+      <p>All your data lives in the app's private sandbox, which the operating system isolates from other apps. The security of your data at rest is therefore equivalent to the security of your device itself — protected by your device's lock screen, biometric authentication, and full-disk encryption where enabled.</p>
+      <p>Because InSureD does not transmit your data over the network, there is no data in transit to intercept and no server that could be breached. The app does not sync between devices.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">9</span> Your Rights (GDPR, CCPA &amp; Similar)</h2>
+      <p>Because the developer holds no personal data on any server, requests under data-protection laws are effectively self-served directly within the app:</p>
+      <ul>
+        <li><strong>Access &amp; portability</strong> — export all your data at any time from Settings in JSON or ZIP format.</li>
+        <li><strong>Rectification</strong> — edit any record directly within the app.</li>
+        <li><strong>Erasure</strong> — delete individual records in the app, or uninstall the app to remove everything.</li>
+        <li><strong>Withdraw consent</strong> — revoke notification permission at any time in your device's system settings.</li>
+      </ul>
+      <p>The developer holds no data that could be the subject of an access, portability, rectification, or erasure request — with the narrow exception that if you have voluntarily contacted the developer by email for support, standard email correspondence retention applies. You may request deletion of such emails by contacting us at the address in Section 11.</p>
+      <p>For data processed by RevenueCat, Google, or Apple in connection with your in-app purchase, you may exercise your rights directly with those providers via their respective privacy controls.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">10</span> International Data Transfers</h2>
+      <p>The developer is based in the Czech Republic. Because InSureD stores all user data locally on your device and transmits none of it to any server, no personal data is transferred internationally by the developer.</p>
+      <p>If you make an in-app purchase, RevenueCat and the relevant app store (Google or Apple) may process limited, purchase-related data in the United States or other countries, in accordance with their own privacy policies and applicable data-transfer mechanisms.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">11</span> Changes to This Policy</h2>
+      <p>We may update this Privacy Policy if the app's functionality changes or legal requirements evolve. Any changes will be reflected on this page with an updated effective date.</p>
+      <p>We will not introduce data-collection practices that are materially different from those described here without updating this document. Continued use of the app after changes constitutes acceptance of the updated policy.</p>
+    </section>
+
+    <section>
+      <h2><span class="num">12</span> Contact</h2>
+      <p>Questions or concerns about this Privacy Policy? Reach out:</p>
+      <div class="contact-box">
+        <span class="icon">✉</span>
+        <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>InSureD &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
+      <p style="margin-top:0.4rem;">This policy applies to the Android and iOS versions of the app.</p>
+    </footer>
+
+  </div>
+
+  <script>
+    // Set dates dynamically — replace with actual dates before publishing
+    const today = new Date().toLocaleDateString('en-GB', {
+      day: 'numeric', month: 'long', year: 'numeric'
+    });
+    document.getElementById('date').textContent = today;
+    document.getElementById('updated').textContent = today;
+  </script>
+</body>
+</html>
