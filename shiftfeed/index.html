@@ -321,7 +321,7 @@
     <header>
       <div class="app-badge">ShiftFeed</div>
       <h1>Privacy Policy</h1>
-      <p class="meta">Effective date: 30 April 2026 &nbsp;·&nbsp; Last updated: 30 April 2026</p>
+      <p class="meta">Effective date: 1 June 2026 &nbsp;·&nbsp; Last updated: 1 June 2026</p>
     </header>
 
     <section>
@@ -412,7 +412,7 @@
       </ul>
 
       <h3>Web and Desktop</h3>
-      <p>No special permissions are requested. The web version runs as a static site and makes only anonymous read requests to the backend database. Account features and the Pro tier are not available on web or desktop.</p>
+      <p>No special permissions are requested. The web version runs as a static site and makes anonymous read requests to the backend database, and also fetches font files from Google's servers (see Section 5). Account features and the Pro tier are not available on web or desktop.</p>
     </section>
 
     <section>
@@ -432,8 +432,11 @@
       </div>
 
       <div class="third-party-card">
-        <div class="tp-name">RevenueCat (subscription management) — mobile only</div>
-        <p>Manages Pro subscription entitlements on Android and iOS. After sign-in, the app sends your Supabase user UUID and standard purchase metadata (product ID, store, subscription status) to RevenueCat so your Pro entitlements follow your account across devices. RevenueCat does not receive payment instrument details. Not used on web or desktop.</p>
+        <div class="tp-name">Google Fonts (font delivery)</div>
+        <p>ShiftFeed uses the Google Fonts service for its typography. Font files (IBM Plex) are not bundled with the app; instead they are fetched at runtime from Google's servers (<code>fonts.gstatic.com</code>) on first launch. This happens on every platform — mobile, web, and desktop — whether or not you are signed in. Google receives the request's IP address and User-Agent in order to deliver the fonts. No account information or app data is sent.</p>
+        <p>Google privacy policy: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></p>
+      </div>
+        <p>Manages Pro subscription entitlements on Android and iOS. The RevenueCat SDK initialises on every mobile (Android/iOS) app launch — before any sign-in — creating an anonymous, RevenueCat-generated app-user ID and contacting RevenueCat's backend. Once you sign in, that identity is associated with your Supabase user UUID, and standard purchase metadata (product ID, store, subscription status) is linked so your Pro entitlements follow your account across devices. RevenueCat does not receive payment instrument details. Not used on web or desktop.</p>
         <p>RevenueCat privacy policy: <a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">revenuecat.com/privacy</a></p>
       </div>
 
@@ -458,6 +461,7 @@
       <div class="third-party-card">
         <div class="tp-name">GitHub Pages (web hosting)</div>
         <p>The web version of ShiftFeed is hosted as a static site on GitHub Pages. Visitors may be subject to GitHub's privacy practices for static site visitors. Account and Pro features are not available on the web version.</p>
+        <p>On all platforms, the app also makes an unauthenticated request to the public GitHub REST API (<code>api.github.com</code>) to read the timestamp of the last successful content update for the "feed freshness" indicator. No user data is transmitted.</p>
         <p>GitHub privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">GitHub Privacy Statement</a></p>
       </div>
     </section>
