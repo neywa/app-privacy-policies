@@ -1,301 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Privacy Policy – Voiclee</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy – Voiclee</title>
+<style>
+  :root {
+    --bg: #131314;
+    --surface: #1c1c1e;
+    --text: #ececec;
+    --muted: #9a9a9f;
+    --accent: #c8923a;
+    --accent-soft: rgba(200, 146, 58, 0.12);
+    --border: #2a2a2d;
+    --radius: 14px;
+  }
 
-    :root {
-      --bg: #f7f5f0;
-      --surface: #ffffff;
-      --ink: #1c1a17;
-      --muted: #6b6560;
-      --accent: #6C63FF;
-      --border: #e2ddd7;
-      --radius: 12px;
-    }
+  * { box-sizing: border-box; }
 
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 300;
-      font-size: 16px;
-      line-height: 1.75;
-      padding: 2rem 1rem 4rem;
-    }
+  html { -webkit-text-size-adjust: 100%; }
 
-    .wrap {
-      max-width: 720px;
-      margin: 0 auto;
-    }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    line-height: 1.65;
+    font-size: 17px;
+  }
 
-    header {
-      padding: 2.5rem 0 2rem;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 2.5rem;
-    }
+  .wrap {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
 
-    .app-badge {
-      display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.75rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      padding: 0.3em 0.85em;
-      border-radius: 99px;
-      margin-bottom: 1rem;
-    }
+  header {
+    margin-bottom: 40px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
 
-    h1 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 400;
-      line-height: 1.15;
-      color: var(--ink);
-      margin-bottom: 0.6rem;
-    }
+  .brand {
+    display: inline-block;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 18px;
+  }
 
-    .meta {
-      color: var(--muted);
-      font-size: 0.875rem;
-    }
+  h1 {
+    font-size: 2.1rem;
+    line-height: 1.2;
+    margin: 0 0 14px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
 
-    section {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.75rem 2rem;
-      margin-bottom: 1.25rem;
-    }
+  .dates {
+    color: var(--muted);
+    font-size: 0.92rem;
+    margin: 0;
+  }
 
-    h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
+  h2 {
+    font-size: 1.28rem;
+    margin: 44px 0 14px;
+    font-weight: 650;
+    letter-spacing: -0.005em;
+  }
 
-    h2 .num {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 1.6em;
-      height: 1.6em;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      color: var(--muted);
-      flex-shrink: 0;
-    }
+  h3 {
+    font-size: 1.05rem;
+    margin: 28px 0 10px;
+    font-weight: 600;
+    color: var(--text);
+  }
 
-    h3 {
-      font-family: 'DM Sans', sans-serif;
-      font-weight: 500;
-      font-size: 0.9rem;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin: 1.25rem 0 0.4rem;
-    }
+  p { margin: 0 0 16px; }
 
-    h3:first-of-type { margin-top: 0.5rem; }
+  ul {
+    margin: 0 0 16px;
+    padding-left: 22px;
+  }
 
-    p {
-      color: var(--ink);
-      margin-bottom: 0.75rem;
-    }
+  li { margin-bottom: 8px; }
 
-    p:last-child { margin-bottom: 0; }
+  strong { color: #fff; font-weight: 650; }
 
-    ul {
-      padding-left: 1.25rem;
-      margin-bottom: 0.75rem;
-    }
+  a {
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200, 146, 58, 0.35);
+    transition: border-color 0.15s ease;
+  }
+  a:hover { border-color: var(--accent); }
 
-    ul:last-child { margin-bottom: 0; }
+  .lede {
+    background: var(--accent-soft);
+    border: 1px solid rgba(200, 146, 58, 0.25);
+    border-radius: var(--radius);
+    padding: 20px 22px;
+    margin: 0 0 8px;
+  }
+  .lede p:last-child { margin-bottom: 0; }
 
-    li {
-      margin-bottom: 0.35rem;
-      color: var(--ink);
-    }
+  .permissions {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+  }
+  .permissions li {
+    padding: 12px 16px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  .permissions li strong { color: var(--accent); }
 
-    a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.15s;
-    }
+  .contact-email {
+    font-size: 1.05rem;
+    word-break: break-all;
+  }
 
-    a:hover { border-bottom-color: var(--accent); }
+  footer {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
 
-    .highlight {
-      background: #f0f0ff;
-      border-left: 3px solid var(--accent);
-      border-radius: 0 8px 8px 0;
-      padding: 0.85rem 1rem;
-      margin: 0.75rem 0;
-      font-size: 0.925rem;
-    }
-
-    .highlight:last-child { margin-bottom: 0; }
-
-    .no-collect {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.4rem 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .no-collect li {
-      font-size: 0.9rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-
-    .no-collect li::before {
-      content: '✕';
-      color: var(--muted);
-      font-size: 0.7rem;
-      flex-shrink: 0;
-    }
-
-    .contact-box {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 1rem 1.25rem;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-top: 0.5rem;
-    }
-
-    .contact-box .icon {
-      font-size: 1.25rem;
-      flex-shrink: 0;
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.8rem;
-      margin-top: 2.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
-    }
-
-    @media (max-width: 540px) {
-      section { padding: 1.25rem 1.25rem; }
-      .no-collect { grid-template-columns: 1fr; }
-    }
-  </style>
+  @media (max-width: 480px) {
+    body { font-size: 16px; }
+    .wrap { padding: 40px 18px 64px; }
+    h1 { font-size: 1.7rem; }
+    h2 { font-size: 1.18rem; }
+  }
+</style>
 </head>
 <body>
-  <div class="wrap">
+<div class="wrap">
+  <header>
+    <span class="brand">Voiclee</span>
+    <h1>Privacy Policy</h1>
+    <p class="dates">Effective date: June 23, 2026 · Last updated: June 23, 2026</p>
+  </header>
 
-    <header>
-      <div class="app-badge">Voiclee</div>
-      <h1>Privacy Policy</h1>
-      <p class="meta">Effective date: April 3, 2026 &nbsp;·&nbsp; Last updated: April 3, 2026</p>
-    </header>
+  <main>
+    <h2>1. Introduction</h2>
+    <p>Voiclee is a voice-first reminder app developed by an independent developer. This Privacy Policy explains what data the App handles, why, and how it is kept.</p>
+    <div class="lede">
+      <p>The short version: <strong>we don't collect personal data ourselves.</strong> We run no servers, no analytics, no advertising, and no tracking. The only third-party processor we use is RevenueCat, and only to handle the optional one-time Pro purchase — described in detail below.</p>
+    </div>
+    <p>This policy applies to the Android version and the upcoming iOS version of the App. By using the App you agree to the practices described here.</p>
 
-    <section>
-      <h2><span class="num">1</span> Introduction</h2>
-      <p>Voiclee is a voice-first reminder app developed by an independent developer. This Privacy Policy explains what data the App collects, why it collects it, and how it is handled.</p>
-      <p>We are committed to protecting your privacy. The short version: <strong>we do not collect or store any personal data on our end.</strong> By using the App you agree to the practices described below.</p>
-    </section>
+    <h2>2. Our Privacy Principle</h2>
+    <p>Voiclee is built to be privacy-first and offline-capable:</p>
+    <ul>
+      <li>We operate no servers and no databases of our own.</li>
+      <li>Your reminders, voice notes, and settings are stored only on your device.</li>
+      <li>We do not collect analytics, crash reports, advertising IDs, location, contacts, or any personal profile.</li>
+      <li>The only data shared with a third party is the minimum needed to process and restore your Pro purchase (see Section 4).</li>
+    </ul>
 
-    <section>
-      <h2><span class="num">2</span> What Data We Collect</h2>
+    <h2>3. Voice Input &amp; Voice Notes</h2>
+    <h3>Microphone &amp; voice input</h3>
+    <p>The App requests microphone access (RECORD_AUDIO) so you can create reminders by speaking — this is the core function of the app.</p>
+    <p>Your speech is transcribed <strong>entirely on your device</strong> using the operating system's built-in speech recognition (Android <code>SpeechRecognizer</code> / iOS Speech framework). That on-device recognition is provided and governed by the platform vendor's own policies:</p>
+    <ul>
+      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> (Android)</li>
+      <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a> (iOS)</li>
+    </ul>
+    <p>No audio from voice input is ever sent to us or to any third party. The microphone is active only while you are actively recording; it is never used in the background, and nothing is captured without your explicit action.</p>
 
-      <h3>Microphone &amp; Voice Input</h3>
-      <p>The App requests microphone access (RECORD_AUDIO) so you can create reminders by speaking. This is the core functionality of the app.</p>
-      <div class="highlight">Voice input is processed <strong>entirely on your device</strong> using the operating system's built-in speech recognition. No audio is ever sent to our servers or any third party.</div>
-      <ul>
-        <li>The microphone is only active when you are actively recording — it is never used in the background.</li>
-        <li>No audio is captured without your explicit action.</li>
-      </ul>
+    <h3>Voice notes</h3>
+    <p>You can optionally attach an audio voice note to a reminder. When you do, the audio file is saved <strong>only in the App's private storage on your device</strong>. It is never uploaded or shared, and it is permanently deleted when you delete the task or uninstall the App.</p>
+    <p>You can revoke microphone permission at any time in your device settings. Without it, voice input and voice notes are unavailable, but you can still manage reminders manually.</p>
 
-      <h3>Voice Notes</h3>
-      <p>The App allows you to attach a voice note recording to an existing reminder. When you do:</p>
-      <ul>
-        <li>The audio file is saved <strong>locally on your device only</strong>.</li>
-        <li>It is never transmitted to any server or shared with any third party.</li>
-        <li>Deleting the reminder also permanently deletes the attached voice note.</li>
-      </ul>
-      <p>You can revoke microphone permission at any time in your device settings. Without it, voice input and voice notes will be unavailable, but you can still manage reminders manually.</p>
+    <h2>4. In-App Purchases (Pro)</h2>
+    <p>Voiclee offers a single one-time <strong>Pro</strong> purchase. The purchase is processed through <strong>RevenueCat</strong> (a third-party purchase-management service) and the <strong>Google Play Billing</strong> system.</p>
+    <p>To validate your purchase and let you restore it after a reinstall or on a new device, RevenueCat receives:</p>
+    <ul>
+      <li>a <strong>randomly generated anonymous app-user ID</strong> (not linked to your name or identity),</li>
+      <li>the <strong>purchase token / receipt</strong> from the store, and</li>
+      <li><strong>basic device, platform, and country information</strong> needed to validate the purchase.</li>
+    </ul>
+    <p><strong>We never receive — and never give RevenueCat — your name, email address, or payment-card details.</strong> Payment is handled entirely by Google Play; we never see your card or billing information.</p>
+    <p>This is the one place where data is shared with an external service. Their handling is governed by:</p>
+    <ul>
+      <li><a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener">RevenueCat Privacy Policy</a></li>
+      <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Play / Google Privacy Policy</a></li>
+    </ul>
 
-      <h3>What We Do NOT Collect</h3>
-      <ul class="no-collect">
-        <li>Name or email address</li>
-        <li>Location data</li>
-        <li>Device or advertising IDs</li>
-        <li>Usage analytics</li>
-        <li>Crash reports</li>
-        <li>Contacts or camera</li>
-      </ul>
-    </section>
+    <h2>5. Internet Use</h2>
+    <p>The App requests internet permission for exactly two reasons:</p>
+    <ul>
+      <li><strong>Validating and restoring your Pro purchase</strong> via RevenueCat.</li>
+      <li><strong>Opening external links</strong> — such as help/documentation pages or a support email — in your browser or mail app.</li>
+    </ul>
+    <p>No personal data and no task content is ever transmitted over the internet by the App.</p>
 
-    <section>
-      <h2><span class="num">3</span> Third-Party Services</h2>
-      <p>Voiclee does not integrate any third-party analytics, advertising, or tracking SDKs. No data is shared with any external service.</p>
-      <p>Speech recognition is handled entirely by the operating system's built-in APIs (Android SpeechRecognizer / iOS Speech framework) and is subject to the platform's own privacy policy:</p>
-      <ul>
-        <li><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a> (Android)</li>
-        <li><a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a> (iOS)</li>
-      </ul>
-    </section>
+    <h2>6. Local Notifications</h2>
+    <p>The App schedules reminder notifications locally on your device (this requires notification and exact-alarm permissions). It uses a boot receiver only to <strong>re-schedule your existing reminders after the device restarts</strong>, so they aren't lost on reboot. No data is collected by this process.</p>
 
-    <section>
-      <h2><span class="num">4</span> Data Storage &amp; Retention</h2>
-      <p>We do not operate any servers or databases. All app data — reminders, voice notes, and settings — is stored <strong>locally on your device only</strong>. This data is not accessible to us and is never transmitted anywhere.</p>
-      <p>Uninstalling the App permanently removes all locally stored data, including any voice note recordings.</p>
-    </section>
+    <h2>7. Calendar</h2>
+    <p>The App can optionally hand a task off to your calendar app by opening a pre-filled "new event" screen (an Android insert intent). Voiclee <strong>does not request calendar permissions</strong> and does <strong>not read, write, sync, or track</strong> any calendar data. It simply passes the task's title and time to whatever calendar app you choose, one time, at your request. Whether you save the event is entirely up to you, in that app.</p>
 
-    <section>
-      <h2><span class="num">5</span> Children's Privacy</h2>
-      <p>The App is not directed at children under 13 (or under 16 in the European Union). We do not knowingly collect any personal data from children. Since the App collects no data on our end, there is no risk of inadvertent collection from minors.</p>
-    </section>
+    <h2>8. Text-to-Speech (Daily Briefing)</h2>
+    <p>The optional Daily Briefing reads your tasks aloud using your device's built-in text-to-speech engine. No audio and no task data leaves your device as part of this feature.</p>
 
-    <section>
-      <h2><span class="num">6</span> Your Rights</h2>
-      <p>Since we do not collect or store personal data on our end, there is no data held by us to access, correct, or delete. All data remains on your device and is fully under your control. You can delete individual reminders and their voice notes from within the App, or remove all data by uninstalling it.</p>
-    </section>
+    <h2>9. Backup, Export, Import &amp; Sharing</h2>
+    <p>You are in full control of your data and can take it with you:</p>
+    <ul>
+      <li>You can <strong>export</strong> all your data as a single JSON file and share it through the Android share sheet to any destination you choose.</li>
+      <li>You can <strong>import</strong> data from a file you select.</li>
+    </ul>
+    <p>This is always user-initiated. Once you export or share a file, it leaves Voiclee's control and is governed by wherever you choose to send it (for example, your cloud storage, files app, or email). We never see or receive that file.</p>
 
-    <section>
-      <h2><span class="num">7</span> Changes to This Policy</h2>
-      <p>We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
-    </section>
+    <h2>10. Data Storage &amp; Retention</h2>
+    <p>We do not operate any servers or databases. All app data — reminders, voice notes, and settings — is stored <strong>only on your device</strong>. This data is not accessible to us and is not transmitted anywhere (except the limited purchase data described in Section 4, which contains no personal information).</p>
+    <p>Uninstalling the App permanently removes all locally stored data, including any voice note recordings.</p>
 
-    <section>
-      <h2><span class="num">8</span> Contact</h2>
-      <p>Questions or concerns about this Privacy Policy? Reach out:</p>
-      <div class="contact-box">
-        <span class="icon">✉</span>
-        <a href="mailto:neywa.blake@gmail.com">neywa.blake@gmail.com</a>
-      </div>
-    </section>
+    <h2>11. Permissions We Request and Why</h2>
+    <ul class="permissions">
+      <li><strong>Microphone</strong> — voice input and optional voice notes.</li>
+      <li><strong>Notifications</strong> — to show your reminders.</li>
+      <li><strong>Exact alarm</strong> — to deliver reminders at the precise scheduled time.</li>
+      <li><strong>Internet</strong> — to validate/restore the Pro purchase and to open external links.</li>
+      <li><strong>Vibration</strong> — haptic feedback within the App.</li>
+      <li><strong>Receive boot completed</strong> — to re-schedule your existing reminders after a device restart.</li>
+      <li><strong>Billing</strong> — to process the one-time Pro purchase through Google Play.</li>
+    </ul>
 
-    <footer>
-      <p>Voiclee &nbsp;·&nbsp; Independent developer &nbsp;·&nbsp; Czech Republic</p>
-      <p style="margin-top:0.4rem;">This policy applies to the Android and iOS versions of the app.</p>
-    </footer>
+    <h2>12. Children's Privacy</h2>
+    <p>The App is not directed at children under 13. We do not knowingly collect any personal data from children. Because we collect no personal data ourselves, there is no risk of inadvertent collection from minors.</p>
 
-  </div>
+    <h2>13. Your Rights</h2>
+    <p>Your data stays under your control at all times:</p>
+    <ul>
+      <li>All reminders, voice notes, and settings live on your device.</li>
+      <li>You can <strong>export</strong> your data or <strong>delete</strong> individual reminders and their voice notes from within the App at any time.</li>
+      <li><strong>Uninstalling</strong> the App wipes all locally stored data.</li>
+    </ul>
+    <p>Because we don't hold your personal data on our end, there is nothing on our servers for you to access, correct, or delete.</p>
+
+    <h2>14. Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date. Continued use of the App after changes constitutes acceptance of the updated policy.</p>
+
+    <h2>15. Contact</h2>
+    <p>Questions or concerns about this Privacy Policy? Reach out:</p>
+    <p class="contact-email">✉ <a href="mailto:neywa@neywa.studio">neywa@neywa.studio</a></p>
+  </main>
+
+  <footer>
+    Voiclee · Independent developer · Czech Republic
+  </footer>
+</div>
 </body>
 </html>
