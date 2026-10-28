@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zásady ochrany osobních údajů – Zdravý domov</title>
+<meta name="description" content="Zásady ochrany osobních údajů mobilní aplikace Zdravý domov.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --accent: #1B4D36;
+    --accent-soft: #E6F0EA;
+    --bg: #f7f5f0;
+    --card: #ffffff;
+    --border: #e5e1d8;
+    --text: #2a2a28;
+    --muted: #6b6860;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 48px 16px 32px; }
+  header { text-align: center; margin-bottom: 36px; }
+  .badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--accent); color: #fff;
+    padding: 6px 16px; border-radius: 999px;
+    font-weight: 700; font-size: 14px; letter-spacing: .02em;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif; font-weight: 400;
+    font-size: clamp(32px, 7vw, 44px); line-height: 1.15;
+    margin: 18px 0 10px;
+  }
+  .dates { color: var(--muted); font-size: 14px; }
+  .dates span { white-space: nowrap; }
+  section {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 24px;
+    margin-bottom: 18px;
+  }
+  h2 {
+    font-family: 'DM Serif Display', serif; font-weight: 400;
+    font-size: 24px; line-height: 1.25;
+    display: flex; align-items: center; gap: 12px;
+    margin: 0 0 14px;
+  }
+  .num {
+    flex: none; width: 34px; height: 34px; border-radius: 50%;
+    background: var(--accent); color: #fff;
+    font-family: 'DM Sans', sans-serif; font-size: 15px; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  h3 { font-size: 17px; font-weight: 700; margin: 22px 0 6px; color: var(--accent); }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+  .highlight {
+    background: var(--accent-soft);
+    border-left: 4px solid var(--accent);
+    border-radius: 0 10px 10px 0;
+    padding: 14px 18px;
+    margin: 14px 0;
+  }
+  .highlight p:last-child { margin-bottom: 0; }
+  .not-collected {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px;
+    list-style: none; padding: 0; margin: 12px 0 0;
+  }
+  .not-collected li { display: flex; gap: 10px; align-items: baseline; margin: 0; }
+  .not-collected li::before { content: "✕"; color: #b4442f; font-weight: 700; flex: none; }
+  footer { text-align: center; color: var(--muted); font-size: 14px; padding: 18px 0 8px; }
+  footer p { margin: 4px 0; }
+  @media (max-width: 520px) {
+    section { padding: 22px 18px; }
+    .not-collected { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="badge">🏡 Zdravý domov</div>
+  <h1>Zásady ochrany osobních údajů</h1>
+  <div class="dates"><span>Účinnost od: 28. 10. 2026</span> · <span>Poslední aktualizace: 28. 10. 2026</span></div>
+</header>
+
+<section>
+  <h2><span class="num">1</span>Úvod</h2>
+  <p>Tyto zásady popisují, jak mobilní aplikace <strong>Zdravý domov</strong> (dále jen „aplikace“) nakládá s vašimi údaji. Aplikace je katalog produktů a kalkulačka spotřeby termoreflexních nátěrů PScoat s možností odeslat poptávku týmu Zdravý domov.</p>
+  <div class="highlight">
+    <p><strong>Stručně:</strong> aplikace nemá uživatelské účty, analytiku, reklamy ani vlastní server. Sama nikam neodesílá žádná data. Údaje opustí váš telefon jen tehdy, když <em>vy</em> odešlete poptávku e-mailem ze své e-mailové aplikace.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">2</span>Jaké údaje zpracováváme</h2>
+
+  <h3>Formulář poptávky</h3>
+  <p>Formulář poptávky se ptá na vaše jméno, e-mail, telefon (nepovinný), lokalitu stavby (nepovinná), typ stavby, problém, který chcete řešit, plochu a případně připojený výsledek kalkulace.</p>
+  <p>Po klepnutí na <strong>Odeslat</strong> aplikace nic neodesílá. Otevře vaši e-mailovou aplikaci s předvyplněnou zprávou na adresu <a href="mailto:info@zdravydomov.com">info@zdravydomov.com</a>. Zprávu můžete zkontrolovat, upravit nebo zahodit. Tým Zdravý domov údaje obdrží, jen pokud e-mail sami odešlete. Formulář se v zařízení neukládá.</p>
+
+  <h3>Fotoaparát a fotografie</h3>
+  <p>K poptávce můžete přidat až tři fotografie, pořízené fotoaparátem nebo vybrané z galerie. Aplikace přistupuje jen k fotografiím, které sami vyberete, a jen v tu chvíli. Fotografie se zobrazí jako náhled a nikam se nenahrávají; do e-mailu se vloží pouze jejich názvy souborů. Pokud je chcete poslat, přiložíte je k e-mailu sami. Vybrané fotografie mohou krátce zůstat v mezipaměti aplikace ve vašem zařízení.</p>
+
+  <h3>Oblíbené produkty a uložené kalkulace</h3>
+  <p>Oblíbené produkty a až 20 uložených kalkulací (systém, plocha, rezerva, výsledek a datum) se ukládají pouze v místním úložišti aplikace ve vašem zařízení. Nikdy se neodesílají nám ani nikomu jinému.</p>
+
+  <h3>Co nezpracováváme</h3>
+  <ul class="not-collected">
+    <li>Účty ani hesla</li>
+    <li>Polohu (GPS)</li>
+    <li>Kontakty</li>
+    <li>Analytiku ani sledování používání</li>
+    <li>Reklamní identifikátory</li>
+    <li>Hlášení o pádech</li>
+    <li>Platební údaje</li>
+    <li>Identifikátory zařízení</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">3</span>Služby třetích stran</h2>
+  <p>Aplikace neobsahuje žádné knihovny třetích stran pro analytiku, reklamu, hlášení pádů ani platby. Předává vás však následujícím službám, pokud je sami použijete:</p>
+  <ul>
+    <li><strong>Google Play</strong>: distribuuje aplikaci a zpracovává údaje o instalaci a zařízení podle <a href="https://policies.google.com/privacy?hl=cs" target="_blank" rel="noopener">zásad ochrany soukromí Google</a>.</li>
+    <li><strong>Vaše e-mailová aplikace a poskytovatel e-mailu</strong>: odesílá e-mail s poptávkou podle svých vlastních zásad ochrany soukromí.</li>
+    <li><strong>Mapy</strong>: adresa výdejního místa se otevře ve vaší mapové aplikaci, například v Mapách Google (<a href="https://policies.google.com/privacy?hl=cs" target="_blank" rel="noopener">zásady ochrany soukromí Google</a>).</li>
+    <li><strong>E-shop</strong>: odkazy na produkty otevřou web <a href="https://www.zdravydomov.com" target="_blank" rel="noopener">www.zdravydomov.com</a> v prohlížeči; platí pro něj podmínky a zásady ochrany osobních údajů tohoto webu.</li>
+    <li><strong>Sociální sítě</strong>: odkazy na YouTube (<a href="https://policies.google.com/privacy?hl=cs" target="_blank" rel="noopener">Google</a>), Instagram (<a href="https://privacycenter.instagram.com/policy" target="_blank" rel="noopener">Instagram</a>) a Facebook (<a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener">Meta</a>).</li>
+  </ul>
+</section>
+
+<section>
+  <h2><span class="num">4</span>Uložení a doba uchování údajů</h2>
+  <p><strong>Ve vašem zařízení:</strong> oblíbené produkty, uložené kalkulace a případné fotografie v mezipaměti zůstávají v telefonu, dokud je v aplikaci nesmažete, nevymažete data aplikace nebo aplikaci neodinstalujete.</p>
+  <p><strong>Odeslané poptávky:</strong> e-mail s poptávkou přijímá tým Zdravý domov (PSCtherm s.r.o., Březník 218, 675 74 Březník, Česká republika). Používá jej pouze k odpovědi na vaši poptávku a přípravě nabídky a uchovává jej jen po dobu nezbytnou pro tento účel a pro případnou následnou smlouvu nebo zákonné povinnosti. Vývojář aplikace vaše poptávky nedostává ani neukládá.</p>
+</section>
+
+<section>
+  <h2><span class="num">5</span>Ochrana soukromí dětí</h2>
+  <p>Aplikace je určena dospělým, kteří plánují práce na svém domě. Není určena dětem mladším 13 let, v Evropské unii mladším 16 let, a vědomě od nich osobní údaje nezískáváme. Pokud se domníváte, že nám dítě poslalo osobní údaje, kontaktujte nás a údaje budou smazány.</p>
+</section>
+
+<section>
+  <h2><span class="num">6</span>Vaše práva</h2>
+  <p>Podle obecného nařízení o ochraně osobních údajů (GDPR) máte právo:</p>
+  <ul>
+    <li>na přístup k osobním údajům, které o vás zpracováváme;</li>
+    <li>na opravu nepřesných údajů;</li>
+    <li>na výmaz svých údajů;</li>
+    <li>na omezení zpracování a vznesení námitky proti zpracování;</li>
+    <li>na získání svých údajů ve strojově čitelném formátu;</li>
+    <li>kdykoli odvolat souhlas, pokud je zpracování na souhlasu založeno;</li>
+    <li>podat stížnost u <a href="https://uoou.gov.cz" target="_blank" rel="noopener">Úřadu pro ochranu osobních údajů</a> (ÚOOÚ) nebo u dozorového úřadu ve vaší zemi.</li>
+  </ul>
+  <div class="highlight">
+    <p>Údaje uložené jen ve vašem zařízení máte plně pod kontrolou: odinstalováním aplikace se smažou. Ohledně odeslaných poptávek pište na <a href="mailto:info@zdravydomov.com">info@zdravydomov.com</a>.</p>
+  </div>
+</section>
+
+<section>
+  <h2><span class="num">7</span>Změny těchto zásad</h2>
+  <p>Tyto zásady můžeme aktualizovat, například pokud se poptávky začnou odesílat přes server nebo přibudou uživatelské účty. Změny zveřejníme na této stránce s novým datem „Poslední aktualizace“. O podstatných změnách vás budeme informovat také v aplikaci.</p>
+</section>
+
+<section>
+  <h2><span class="num">8</span>Kontakt</h2>
+  <p><strong>Dotazy k aplikaci a těmto zásadám:</strong> <a href="mailto:CONTACT_EMAIL">CONTACT_EMAIL</a></p>
+  <p><strong>Dotazy k odeslané poptávce:</strong> Zdravý domov, PSCtherm s.r.o., <a href="mailto:info@zdravydomov.com">info@zdravydomov.com</a>, +420 602 690 695</p>
+</section>
+
+<footer>
+  <p>Nezávislý vývojář · Česká republika</p>
+  <p>Tyto zásady se vztahují na aplikaci Zdravý domov pro Android.</p>
+</footer>
+
+</div>
+</body>
+</html>
